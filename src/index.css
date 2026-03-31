@@ -147,3 +147,8 @@
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
+
+@keyframes neon-race {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -960; }
+}
