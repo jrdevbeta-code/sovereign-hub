@@ -25,12 +25,12 @@ const Header = () => {
       {/* Right: Trust Score + Wallet */}
       <div className="flex items-center gap-3">
         <div className="text-right">
-          <p className="text-[9px] font-orbitron tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="text-[8px] font-orbitron tracking-[0.2em] text-muted-foreground uppercase">
             Trust Score
           </p>
-          <p className="text-xl font-orbitron font-bold text-gold gold-glow">
+          <p className="text-sm font-orbitron font-bold text-gold gold-glow">
             92
-            <span className="text-xs text-muted-foreground font-normal"> / 100</span>
+            <span className="text-[10px] text-muted-foreground font-normal"> / 100</span>
           </p>
         </div>
         <motion.button
