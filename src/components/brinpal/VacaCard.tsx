@@ -1,11 +1,16 @@
-import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Users, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const members = [
-  { name: "Juan", letter: "J", amount: "80", paid: false },
-  { name: "María", letter: "M", amount: "80", paid: true },
-  { name: "Carlos", letter: "C", amount: "80", paid: false },
+  { name: "Juan", letter: "J", bs: "80", bcv: "2.19", bp: "2.19", paid: false },
+  { name: "María", letter: "M", bs: "80", bcv: "2.19", bp: "2.19", paid: true },
+  { name: "Carlos", letter: "C", bs: "80", bcv: "2.19", bp: "2.19", paid: false },
 ];
+
+const totalBs = 240;
+const paidBs = 80;
+const progressPercent = Math.round((paidBs / totalBs) * 100);
 
 const avatarGradients = [
   "linear-gradient(135deg, hsl(43,56%,52%), hsl(43,80%,60%))",
@@ -13,32 +18,104 @@ const avatarGradients = [
   "linear-gradient(135deg, hsl(216,30%,25%), hsl(216,30%,35%))",
 ];
 
+// Micro-piano segment: the "active" currency gets a 3D pop-out effect
+const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: string; bp: string; activeCurrency?: string }) => {
+  const segments = [
+    { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)", key: "bs" },
+    { label: "BCV", value: bcv, bg: "hsl(216,80%,50%)", color: "hsl(0,0%,100%)", key: "bcv" },
+    { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)", key: "bp" },
+  ];
+
+  return (
+    <div className="flex flex-col gap-[2px] rounded-md overflow-hidden">
+      {segments.map((seg) => {
+        const isActive = seg.key === activeCurrency;
+        return (
+          <div
+            key={seg.key}
+            className="flex items-center justify-between px-1.5 py-[2px]"
+            style={{
+              background: seg.bg,
+              color: seg.color,
+              transform: isActive ? "scale(1.08)" : "scale(1)",
+              boxShadow: isActive
+                ? "0 2px 8px hsla(145,60%,40%,0.5), 0 0 0 1px hsla(145,60%,40%,0.3)"
+                : "none",
+              zIndex: isActive ? 2 : 1,
+              position: "relative",
+              borderRadius: isActive ? "4px" : "0",
+              transition: "all 0.2s ease",
+            }}
+          >
+            <span className="text-[6px] font-orbitron font-bold">{seg.label}</span>
+            <span className="text-[7px] font-orbitron font-bold ml-1">{seg.value}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const VacaCard = () => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6, duration: 0.5 }}
       whileHover={{ scale: 1.02 }}
-      className="glass-card-deep p-4"
+      className="glass-card-deep p-4 cursor-pointer"
+      onClick={() => setExpanded(!expanded)}
     >
-      <div className="flex items-center gap-2 mb-2">
-        <span className="text-base">🐄</span>
-        <p className="text-[10px] font-orbitron tracking-widest text-gold uppercase">
-          Vaca Activa
+      {/* Header */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2">
+          <span className="text-base">🐄</span>
+          <p className="text-[10px] font-orbitron tracking-widest text-gold uppercase">
+            Vaca Activa
+          </p>
+        </div>
+        <motion.div
+          animate={{ rotate: expanded ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+        >
+          <ChevronDown className="w-4 h-4 text-muted-foreground" />
+        </motion.div>
+      </div>
+
+      {/* Total amount */}
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-sm font-semibold text-foreground">Reunión pendiente</p>
+        <p className="text-sm font-orbitron font-bold text-gold gold-glow">
+          240 <span className="text-[9px] font-bold">Bs</span>
         </p>
       </div>
-      <p className="text-sm font-semibold text-foreground">Reunión pendiente</p>
-      <p className="text-xs text-muted-foreground mt-1">
-        Juan y Carlos faltan por pagar
+
+      {/* Progress bar */}
+      <div className="w-full h-2 rounded-full overflow-hidden mb-1"
+        style={{ background: "hsla(216,20%,18%,1)" }}
+      >
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${progressPercent}%` }}
+          transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
+          className="h-full rounded-full"
+          style={{
+            background: "linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--gold)))",
+          }}
+        />
+      </div>
+      <p className="text-[9px] text-muted-foreground font-exo mb-3">
+        {progressPercent}% completado · Juan y Carlos faltan por pagar
       </p>
 
-      {/* Members with mini piano amounts */}
-      <div className="flex items-center gap-3 mt-3">
+      {/* Members with micro-piano */}
+      <div className="flex items-center gap-3">
         {members.map((m, i) => (
           <div key={i} className="flex items-center gap-1.5">
             <div
-              className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold"
+              className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
               style={{
                 background: avatarGradients[i],
                 color: "hsl(210,20%,92%)",
@@ -49,22 +126,54 @@ const VacaCard = () => {
             >
               {m.letter}
             </div>
-            {/* Mini piano strip */}
-            <div
-              className="px-1.5 py-0.5 rounded text-[8px] font-orbitron font-bold"
-              style={{
-                background: m.paid
-                  ? "linear-gradient(135deg, hsl(145,60%,38%), hsl(145,70%,45%))"
-                  : "linear-gradient(135deg, hsl(0,0%,96%), hsl(0,0%,100%))",
-                color: m.paid ? "hsl(0,0%,100%)" : "hsl(0,0%,15%)",
-              }}
-            >
-              {m.amount} Bs
-            </div>
+            <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
           </div>
         ))}
         <Users className="w-4 h-4 text-muted-foreground ml-auto" />
       </div>
+
+      {/* Expanded details */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div
+              className="mt-3 pt-3 space-y-2"
+              style={{ borderTop: "1px solid hsla(43,56%,52%,0.1)" }}
+            >
+              {members.map((m, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div
+                      className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold"
+                      style={{ background: avatarGradients[i], color: "hsl(210,20%,92%)" }}
+                    >
+                      {m.letter}
+                    </div>
+                    <span className="text-[11px] text-foreground font-exo">{m.name}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className={`text-[10px] font-orbitron font-bold ${m.paid ? "text-cyan" : "text-destructive"}`}>
+                      {m.paid ? "✓ Pagado" : "Pendiente"}
+                    </span>
+                  </div>
+                </div>
+              ))}
+              <button className="w-full text-[10px] font-orbitron text-cyan mt-2 py-1.5 rounded-lg"
+                style={{ border: "1px solid hsla(185,100%,50%,0.2)" }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Ver más en Flow →
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

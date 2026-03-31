@@ -5,10 +5,12 @@ import TernaPiano from "@/components/brinpal/TernaPiano";
 import VacaCard from "@/components/brinpal/VacaCard";
 import NationFeed from "@/components/brinpal/NationFeed";
 import BottomNav from "@/components/brinpal/BottomNav";
+import NeonBorder from "@/components/brinpal/NeonBorder";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background max-w-md mx-auto relative pb-28">
+      <NeonBorder />
       <Header />
       <MentorSection />
       <MicButton />

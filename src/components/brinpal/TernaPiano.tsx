@@ -4,24 +4,24 @@ import { Satellite, TrendingUp } from "lucide-react";
 const strips = [
   {
     value: "240",
-    unit: "Bs",
+    label: "Bs",
     bg: "linear-gradient(135deg, hsl(0,0%,96%), hsl(0,0%,100%))",
     textColor: "hsl(0,0%,10%)",
-    unitColor: "hsl(0,0%,40%)",
+    labelColor: "hsl(0,0%,30%)",
   },
   {
     value: "36.50",
-    unit: "Bs/$",
+    label: "BCV",
     bg: "linear-gradient(135deg, hsl(216,80%,45%), hsl(216,90%,55%))",
     textColor: "hsl(0,0%,100%)",
-    unitColor: "hsla(0,0%,100%,0.7)",
+    labelColor: "hsla(0,0%,100%,0.7)",
   },
   {
     value: "6.58",
-    unit: "USD",
+    label: "BP",
     bg: "linear-gradient(135deg, hsl(145,60%,38%), hsl(145,70%,45%))",
     textColor: "hsl(0,0%,100%)",
-    unitColor: "hsla(0,0%,100%,0.7)",
+    labelColor: "hsla(0,0%,100%,0.7)",
   },
 ];
 
@@ -59,10 +59,10 @@ const TernaPiano = () => {
                 {strip.value}
               </span>
               <span
-                className="text-[7px] font-orbitron font-medium mt-0.5"
-                style={{ color: strip.unitColor }}
+                className="text-[7px] font-orbitron font-bold mt-0.5"
+                style={{ color: strip.labelColor }}
               >
-                {strip.unit}
+                {strip.label}
               </span>
             </motion.div>
           ))}
@@ -101,7 +101,7 @@ const TernaPiano = () => {
 
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-cyan" />
-            <span className="text-[9px] text-cyan font-orbitron">+12% esta semana</span>
+            <span className="text-[9px] text-cyan font-orbitron font-bold">+12% esta semana</span>
           </div>
         </div>
       </div>
