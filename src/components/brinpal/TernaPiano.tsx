@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { Satellite } from "lucide-react";
+import { Satellite, TrendingUp } from "lucide-react";
 
 const strips = [
   {
-    label: "Bolívares / Calle",
     value: "240",
     unit: "Bs",
     bg: "linear-gradient(135deg, hsl(0,0%,96%), hsl(0,0%,100%))",
@@ -11,7 +10,6 @@ const strips = [
     unitColor: "hsl(0,0%,40%)",
   },
   {
-    label: "Tasa Oficial / BCV",
     value: "36.50",
     unit: "Bs/$",
     bg: "linear-gradient(135deg, hsl(216,80%,45%), hsl(216,90%,55%))",
@@ -19,7 +17,6 @@ const strips = [
     unitColor: "hsla(0,0%,100%,0.7)",
   },
   {
-    label: "Dólar / BP",
     value: "6.58",
     unit: "USD",
     bg: "linear-gradient(135deg, hsl(145,60%,38%), hsl(145,70%,45%))",
@@ -42,41 +39,71 @@ const TernaPiano = () => {
           Radar de Precios
         </p>
       </div>
-      <p className="text-sm font-semibold text-foreground mb-3">
-        Precio del Queso · El Marqués
-      </p>
 
-      {/* Piano Strips */}
-      <div className="flex gap-2">
-        {strips.map((strip, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scaleY: 0.8 }}
-            animate={{ opacity: 1, scaleY: 1 }}
-            transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
-            className="flex-1 rounded-xl p-3 flex flex-col items-center justify-center text-center"
-            style={{ background: strip.bg }}
-          >
-            <span
-              className="text-lg font-orbitron font-bold leading-tight"
-              style={{ color: strip.textColor }}
+      <div className="flex gap-3">
+        {/* Piano strips — 30% */}
+        <div className="w-[30%] flex gap-1">
+          {strips.map((strip, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scaleY: 0.8 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
+              className="flex-1 rounded-lg py-3 flex flex-col items-center justify-center"
+              style={{ background: strip.bg }}
             >
-              {strip.value}
-            </span>
-            <span
-              className="text-[9px] font-orbitron font-medium mt-0.5"
-              style={{ color: strip.unitColor }}
-            >
-              {strip.unit}
-            </span>
-            <span
-              className="text-[7px] font-exo mt-1 opacity-70 leading-tight"
-              style={{ color: strip.textColor }}
-            >
-              {strip.label}
-            </span>
-          </motion.div>
-        ))}
+              <span
+                className="text-[11px] font-orbitron font-bold leading-tight"
+                style={{ color: strip.textColor }}
+              >
+                {strip.value}
+              </span>
+              <span
+                className="text-[7px] font-orbitron font-medium mt-0.5"
+                style={{ color: strip.unitColor }}
+              >
+                {strip.unit}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Product info + trend — 70% */}
+        <div className="w-[70%] flex flex-col justify-between">
+          <div>
+            <p className="text-sm font-semibold text-foreground">
+              Queso · El Marqués
+            </p>
+            <p className="text-[10px] text-muted-foreground mt-0.5 font-exo">
+              Último reporte: Hace 2h
+            </p>
+          </div>
+
+          {/* Mini trend chart */}
+          <div className="flex items-end gap-[3px] mt-2 h-8">
+            {[40, 55, 45, 70, 60, 80, 75, 90, 85, 95].map((h, i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ delay: 0.8 + i * 0.05, duration: 0.3 }}
+                className="flex-1 rounded-sm origin-bottom"
+                style={{
+                  height: `${h}%`,
+                  background:
+                    i >= 7
+                      ? "hsl(var(--cyan))"
+                      : "hsla(185,100%,50%,0.25)",
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center gap-1 mt-1">
+            <TrendingUp className="w-3 h-3 text-cyan" />
+            <span className="text-[9px] text-cyan font-orbitron">+12% esta semana</span>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
