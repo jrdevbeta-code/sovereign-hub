@@ -3,9 +3,9 @@ import { Users, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const members = [
-  { name: "Juan", letter: "J", bs: "80", bcv: "2.19", bp: "2.19", paid: false },
-  { name: "María", letter: "M", bs: "80", bcv: "2.19", bp: "2.19", paid: true },
-  { name: "Carlos", letter: "C", bs: "80", bcv: "2.19", bp: "2.19", paid: false },
+  { name: "Juan", letter: "J", bs: "80,00", bcv: "2,19", bp: "2,19", paid: false },
+  { name: "María", letter: "M", bs: "80,00", bcv: "2,19", bp: "2,19", paid: true },
+  { name: "Carlos", letter: "C", bs: "80,00", bcv: "2,19", bp: "2,19", paid: false },
 ];
 
 const totalBs = 240;
@@ -18,7 +18,6 @@ const avatarGradients = [
   "linear-gradient(135deg, hsl(216,30%,25%), hsl(216,30%,35%))",
 ];
 
-// Micro-piano segment: the "active" currency gets a 3D pop-out effect
 const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: string; bp: string; activeCurrency?: string }) => {
   const segments = [
     { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)", key: "bs" },
@@ -27,7 +26,7 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
   ];
 
   return (
-    <div className="flex flex-col gap-[2px] rounded-md overflow-hidden">
+    <div className="flex flex-col gap-[1px] rounded-md overflow-visible">
       {segments.map((seg) => {
         const isActive = seg.key === activeCurrency;
         return (
@@ -37,14 +36,14 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
             style={{
               background: seg.bg,
               color: seg.color,
-              transform: isActive ? "scale(1.08)" : "scale(1)",
+              transform: isActive ? "scale(1.12) translateX(2px)" : "scale(1)",
               boxShadow: isActive
-                ? "0 2px 8px hsla(145,60%,40%,0.5), 0 0 0 1px hsla(145,60%,40%,0.3)"
+                ? "0 3px 12px hsla(145,60%,40%,0.6), 0 0 0 1.5px hsla(145,60%,40%,0.4)"
                 : "none",
-              zIndex: isActive ? 2 : 1,
+              zIndex: isActive ? 10 : 1,
               position: "relative",
               borderRadius: isActive ? "4px" : "0",
-              transition: "all 0.2s ease",
+              transition: "all 0.25s ease",
             }}
           >
             <span className="text-[6px] font-orbitron font-bold">{seg.label}</span>
@@ -88,12 +87,12 @@ const VacaCard = () => {
       <div className="flex items-center justify-between mb-2">
         <p className="text-sm font-semibold text-foreground">Reunión pendiente</p>
         <p className="text-sm font-orbitron font-bold text-gold gold-glow">
-          240 <span className="text-[9px] font-bold">Bs</span>
+          240,00 <span className="text-[9px] font-bold">Bs</span>
         </p>
       </div>
 
       {/* Progress bar */}
-      <div className="w-full h-2 rounded-full overflow-hidden mb-1"
+      <div className="w-full h-2.5 rounded-full overflow-hidden mb-1"
         style={{ background: "hsla(216,20%,18%,1)" }}
       >
         <motion.div
@@ -157,11 +156,9 @@ const VacaCard = () => {
                     </div>
                     <span className="text-[11px] text-foreground font-exo">{m.name}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <span className={`text-[10px] font-orbitron font-bold ${m.paid ? "text-cyan" : "text-destructive"}`}>
-                      {m.paid ? "✓ Pagado" : "Pendiente"}
-                    </span>
-                  </div>
+                  <span className={`text-[10px] font-orbitron font-bold ${m.paid ? "text-cyan" : "text-destructive"}`}>
+                    {m.paid ? "✓ Pagado" : "Pendiente"}
+                  </span>
                 </div>
               ))}
               <button className="w-full text-[10px] font-orbitron text-cyan mt-2 py-1.5 rounded-lg"

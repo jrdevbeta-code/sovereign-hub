@@ -7,10 +7,10 @@ const Header = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="flex items-start justify-between px-5 pt-12 pb-4"
+      className="flex items-start justify-between px-5 pt-6 pb-2"
     >
       {/* Left: Logo + Academy */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         <p className="text-lg font-orbitron font-bold text-gold gold-glow tracking-wider">
           Brinpal
         </p>
@@ -35,7 +35,7 @@ const Header = () => {
       </div>
 
       {/* Right: Trust Score + Virtual ID */}
-      <div className="flex flex-col items-end gap-2">
+      <div className="flex flex-col items-end gap-1.5">
         <div className="flex items-center gap-3">
           <div className="text-right">
             <p className="text-[7px] font-orbitron tracking-[0.2em] text-muted-foreground uppercase">
@@ -69,7 +69,6 @@ const Header = () => {
             border: "1px solid hsla(43,56%,52%,0.12)",
           }}
         >
-          {/* Dual android face icons */}
           <div className="flex -space-x-1">
             <div
               className="w-4 h-4 rounded-full flex items-center justify-center text-[7px] font-bold"
