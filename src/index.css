@@ -150,5 +150,15 @@
 
 @keyframes neon-race {
   0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -960; }
+  30% { stroke-dashoffset: -400; }
+  50% { stroke-dashoffset: -500; }
+  70% { stroke-dashoffset: -800; }
+  100% { stroke-dashoffset: -1240; }
+}
+
+@keyframes neon-race-reverse {
+  0% { stroke-dashoffset: 0; }
+  40% { stroke-dashoffset: 300; }
+  60% { stroke-dashoffset: 500; }
+  100% { stroke-dashoffset: 1240; }
 }

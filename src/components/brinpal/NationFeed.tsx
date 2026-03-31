@@ -9,7 +9,8 @@ const feedItems = [
     title: "Nuevo miembro en tu círculo",
     description: "Ana se unió a 'Vecinos del Marqués'",
     time: "Hace 5 min",
-    details: "Ana fue referida por Carlos. Ahora tu círculo tiene 12 miembros activos. Puedes enviarle un saludo desde Nexus.",
+    details: "Ana fue referida por Carlos. Ahora tu círculo tiene 12 miembros activos.",
+    priceData: null,
   },
   {
     icon: TrendingUp,
@@ -17,7 +18,8 @@ const feedItems = [
     title: "Alerta de precio",
     description: "El arroz subió 12% en tu zona",
     time: "Hace 20 min",
-    details: "Precio actual: 3.20 USD/kg en El Marqués. Hace 7 días: 2.85 USD/kg. Tendencia alcista en toda Caracas.",
+    details: "Tendencia alcista en toda Caracas.",
+    priceData: { bs: "3,20", bcv: "0,09", bp: "0,09" },
   },
   {
     icon: Radio,
@@ -25,9 +27,29 @@ const feedItems = [
     title: "Radar comunitario",
     description: "3 reportes nuevos cerca de ti",
     time: "Hace 1h",
-    details: "Dos reportes de precios actualizados en bodegones y un reporte de disponibilidad de gas doméstico.",
+    details: "Dos reportes de precios actualizados en bodegones y un reporte de gas.",
+    priceData: { bs: "15,00", bcv: "0,41", bp: "0,41" },
   },
 ];
+
+const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => (
+  <div className="flex gap-1 mt-2">
+    {[
+      { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
+      { label: "BCV", value: bcv, bg: "hsl(216,80%,50%)", color: "hsl(0,0%,100%)" },
+      { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)" },
+    ].map((s) => (
+      <div
+        key={s.label}
+        className="flex-1 py-1 flex flex-col items-center rounded-md"
+        style={{ background: s.bg, color: s.color, flexGrow: s.value.length > 4 ? 1.2 : 1 }}
+      >
+        <span className="text-[8px] font-orbitron font-bold">{s.value}</span>
+        <span className="text-[6px] font-orbitron font-bold opacity-70">{s.label}</span>
+      </div>
+    ))}
+  </div>
+);
 
 const NationFeed = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -64,9 +86,7 @@ const NationFeed = () => {
                 >
                   <Icon
                     className="w-4 h-4"
-                    style={{
-                      color: isCyan ? "hsl(185,100%,50%)" : "hsl(43,80%,60%)",
-                    }}
+                    style={{ color: isCyan ? "hsl(185,100%,50%)" : "hsl(43,80%,60%)" }}
                   />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -76,9 +96,7 @@ const NationFeed = () => {
                   </p>
                 </div>
                 <div className="flex flex-col items-end shrink-0 gap-1">
-                  <span className="text-[9px] text-muted-foreground font-exo">
-                    {item.time}
-                  </span>
+                  <span className="text-[9px] text-muted-foreground font-exo">{item.time}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
@@ -98,13 +116,22 @@ const NationFeed = () => {
                     className="overflow-hidden"
                   >
                     <div
-                      className="px-3 pb-3 pt-0 text-[11px] text-muted-foreground font-exo leading-relaxed"
+                      className="px-3 pb-3 pt-2 text-[11px] text-muted-foreground font-exo leading-relaxed"
                       style={{
                         borderTop: `1px solid ${isCyan ? "hsla(185,100%,50%,0.1)" : "hsla(43,80%,60%,0.1)"}`,
-                        paddingTop: "8px",
                       }}
                     >
                       {item.details}
+                      {item.priceData && (
+                        <InlineTerna bs={item.priceData.bs} bcv={item.priceData.bcv} bp={item.priceData.bp} />
+                      )}
+                      <button
+                        className="w-full text-[10px] font-orbitron text-cyan mt-2 py-1.5 rounded-lg"
+                        style={{ border: "1px solid hsla(185,100%,50%,0.2)" }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Ver más →
+                      </button>
                     </div>
                   </motion.div>
                 )}
