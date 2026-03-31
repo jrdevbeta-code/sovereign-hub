@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield } from "lucide-react";
+import { Shield, Wallet } from "lucide-react";
 
 const Header = () => {
   return (
@@ -9,32 +9,42 @@ const Header = () => {
       transition={{ duration: 0.6 }}
       className="flex items-center justify-between px-5 pt-12 pb-4"
     >
-      <div>
-        <p className="text-xs font-orbitron tracking-[0.3em] text-muted-foreground uppercase">
-          Soberanía Digital
-        </p>
-        <h1 className="text-2xl font-orbitron font-bold text-foreground mt-1">
-          Brinpal
-        </h1>
-      </div>
-
-      <motion.div
+      {/* Left: Sovereign Shield */}
+      <motion.button
         whileHover={{ scale: 1.05 }}
-        className="relative flex items-center gap-3"
+        whileTap={{ scale: 0.95 }}
+        className="w-11 h-11 rounded-full flex items-center justify-center neon-border-gold"
+        style={{
+          background: "linear-gradient(135deg, hsl(216,30%,14%), hsl(216,30%,10%))",
+          border: "1px solid hsla(43,56%,52%,0.3)",
+        }}
       >
+        <Shield className="w-5 h-5 text-gold" />
+      </motion.button>
+
+      {/* Right: Trust Score + Wallet */}
+      <div className="flex items-center gap-3">
         <div className="text-right">
-          <p className="text-[10px] font-orbitron tracking-wider text-muted-foreground">
-            TRUST SCORE
+          <p className="text-[9px] font-orbitron tracking-[0.2em] text-muted-foreground uppercase">
+            Trust Score
           </p>
           <p className="text-xl font-orbitron font-bold text-gold gold-glow">
             92
-            <span className="text-sm text-muted-foreground font-normal"> / 100</span>
+            <span className="text-xs text-muted-foreground font-normal"> / 100</span>
           </p>
         </div>
-        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold to-gold-bright flex items-center justify-center neon-border-gold">
-          <Shield className="w-5 h-5 text-primary-foreground" />
-        </div>
-      </motion.div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-10 h-10 rounded-xl flex items-center justify-center"
+          style={{
+            background: "linear-gradient(135deg, hsl(216,30%,14%), hsl(216,30%,10%))",
+            border: "1px solid hsla(43,56%,52%,0.2)",
+          }}
+        >
+          <Wallet className="w-5 h-5 text-gold" />
+        </motion.button>
+      </div>
     </motion.header>
   );
 };
