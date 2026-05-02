@@ -160,10 +160,10 @@ const KeikoHint = () => {
               position: "fixed",
               originX: 0,
               originY: 1,
-              width: "calc(100vw - 72px)",
+              width: "calc(100vw - 60px)",
               top: "10vh",
               maxHeight: "calc(90vh - 140px)",
-              left: "44px",
+              left: "36px",
               bottom: "158px",
               maxWidth: 360,
               zIndex: 50,
@@ -193,7 +193,7 @@ const KeikoHint = () => {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "10px",
+                  gap: "6px",
                   overflowX: "hidden",
                   overflowY: "auto",
                   padding: "8px",
@@ -210,7 +210,7 @@ const KeikoHint = () => {
                   style={{
                     background: "hsla(43,80%,60%,0.06)",
                     border: "1px solid hsla(43,80%,60%,0.1)",
-                    padding: "10px 12px",
+                    padding: "10px 10px",
                     width: "100%",
                     scrollSnapAlign: "start",
                   }}
@@ -242,7 +242,7 @@ const KeikoHint = () => {
                   style={{
                     background: "hsla(185,100%,50%,0.06)",
                     border: "1px solid hsla(185,100%,50%,0.1)",
-                    padding: "10px 12px",
+                    padding: "10px 10px",
                     width: "100%",
                     scrollSnapAlign: "start",
                   }}
