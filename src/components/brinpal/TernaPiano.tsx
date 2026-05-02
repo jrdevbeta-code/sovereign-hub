@@ -94,8 +94,8 @@ const TernaPiano = () => {
             }}
           >
             <span
-              className="text-[13px] font-orbitron font-bold leading-tight whitespace-nowrap"
-              style={{ color: strip.textColor }}
+              className="text-[13px] font-orbitron leading-tight whitespace-nowrap"
+              style={{ color: strip.textColor, fontWeight: 900 }}
             >
               {strip.value}
             </span>
