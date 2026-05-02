@@ -325,7 +325,7 @@ const KeikoHint = () => {
                     <Keyboard className="w-4 h-4 text-gold" />
                   </motion.button>
                 </div>
-                <p className="text-[12px] font-exo" style={{ color: "hsl(210,10%,72%)" }}>
+                <p className="text-[12px] font-exo" style={{ color: "hsl(210,10%,80%)" }}>
                   o pregúntame algo
                 </p>
               </div>
