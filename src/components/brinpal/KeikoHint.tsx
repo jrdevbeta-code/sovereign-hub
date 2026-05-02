@@ -66,6 +66,24 @@ const KeikoHint = () => {
         )}
       </AnimatePresence>
 
+      {/* Línea decorativa detrás de mini-Keiko */}
+      <div
+        style={{
+          position: "fixed",
+          left: 0,
+          bottom: "244px",
+          width: "72px",
+          height: "2px",
+          background:
+            "linear-gradient(90deg, transparent 0%, hsl(185,100%,50%) 60%, hsl(185,100%,70%) 100%)",
+          borderRadius: "0 2px 2px 0",
+          zIndex: 48,
+          opacity: estado === "hidden" ? 0 : 0.5,
+          pointerEvents: "none",
+          transition: "opacity 0.4s ease",
+        }}
+      />
+
       {/* Mini Keiko */}
       <motion.div
         initial={{ x: -60 }}
@@ -82,7 +100,7 @@ const KeikoHint = () => {
       >
         <div
           className="relative cursor-pointer"
-          style={{ position: "relative", outline: "3px solid red" }}
+          style={{ position: "relative" }}
           onClick={handleMiniTap}
         >
           {/* Wave en peeking */}
@@ -154,7 +172,7 @@ const KeikoHint = () => {
             >
               {/* Header del panel */}
               <div className="flex items-center justify-between mb-2.5">
-                <p className="text-[9px] font-orbitron tracking-widest text-muted-foreground uppercase">
+                <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase">
                   Keiko · Para ti ahora
                 </p>
                 <button
@@ -165,8 +183,22 @@ const KeikoHint = () => {
                 </button>
               </div>
 
-              {/* Insights cards */}
-              <div className="flex flex-col gap-2">
+              {/* Insights cards - scroll horizontal */}
+              <div
+                className="keiko-panel-scroll"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "8px",
+                  overflowX: "auto",
+                  overflowY: "hidden",
+                  padding: "8px",
+                  scrollSnapType: "x mandatory",
+                  WebkitOverflowScrolling: "touch",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                }}
+              >
                 {/* Tarjeta 1 — Radar */}
                 <div
                   className="rounded-xl"
@@ -174,12 +206,14 @@ const KeikoHint = () => {
                     background: "hsla(43,80%,60%,0.06)",
                     border: "1px solid hsla(43,80%,60%,0.1)",
                     padding: "10px 12px",
+                    minWidth: "220px",
+                    scrollSnapAlign: "start",
                   }}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <TrendingUp className="w-3.5 h-3.5 text-gold" />
                     <span
-                      className="text-[8px] font-orbitron px-2 py-0.5 rounded-full"
+                      className="text-[9px] font-orbitron px-2 py-0.5 rounded-full"
                       style={{
                         background: "hsla(43,80%,60%,0.15)",
                         color: "hsl(43,80%,60%)",
@@ -188,10 +222,10 @@ const KeikoHint = () => {
                       Radar
                     </span>
                   </div>
-                  <p className="text-[11px] font-orbitron font-bold text-foreground leading-tight">
+                  <p className="text-[12px] font-orbitron font-bold text-foreground leading-tight">
                     El arroz subió 12% en El Marqués
                   </p>
-                  <p className="text-[10px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[11px] font-exo text-muted-foreground mt-0.5">
                     Mejor comprarlo hoy — tendencia alcista esta semana
                   </p>
                   <InlineTerna bs="3,20" bcv="0,09" bp="0,09" />
@@ -204,12 +238,14 @@ const KeikoHint = () => {
                     background: "hsla(185,100%,50%,0.06)",
                     border: "1px solid hsla(185,100%,50%,0.1)",
                     padding: "10px 12px",
+                    minWidth: "220px",
+                    scrollSnapAlign: "start",
                   }}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <Users className="w-3.5 h-3.5 text-cyan" />
                     <span
-                      className="text-[8px] font-orbitron px-2 py-0.5 rounded-full"
+                      className="text-[9px] font-orbitron px-2 py-0.5 rounded-full"
                       style={{
                         background: "hsla(185,100%,50%,0.15)",
                         color: "hsl(185,100%,50%)",
@@ -218,10 +254,10 @@ const KeikoHint = () => {
                       Nexus
                     </span>
                   </div>
-                  <p className="text-[11px] font-orbitron font-bold text-foreground leading-tight">
+                  <p className="text-[12px] font-orbitron font-bold text-foreground leading-tight">
                     Ana acaba de unirse a Vecinos del Marqués
                   </p>
-                  <p className="text-[10px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[11px] font-exo text-muted-foreground mt-0.5">
                     Referida por Carlos · Tu círculo ahora tiene 12 activos
                   </p>
                 </div>
@@ -233,12 +269,14 @@ const KeikoHint = () => {
                     background: "hsla(43,80%,60%,0.06)",
                     border: "1px solid hsla(43,80%,60%,0.1)",
                     padding: "10px 12px",
+                    minWidth: "220px",
+                    scrollSnapAlign: "start",
                   }}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <Sparkles className="w-3.5 h-3.5 text-gold" />
                     <span
-                      className="text-[8px] font-orbitron px-2 py-0.5 rounded-full"
+                      className="text-[9px] font-orbitron px-2 py-0.5 rounded-full"
                       style={{
                         background: "hsla(43,80%,60%,0.15)",
                         color: "hsl(43,80%,60%)",
@@ -247,10 +285,10 @@ const KeikoHint = () => {
                       Taller
                     </span>
                   </div>
-                  <p className="text-[11px] font-orbitron font-bold text-foreground leading-tight">
+                  <p className="text-[12px] font-orbitron font-bold text-foreground leading-tight">
                     Tu propuesta tiene 4 días sin respuesta
                   </p>
-                  <p className="text-[10px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[11px] font-exo text-muted-foreground mt-0.5">
                     El comité revisa ideas cada 1ro de mes · Faltan 6 días
                   </p>
                 </div>
@@ -283,7 +321,7 @@ const KeikoHint = () => {
                     <Keyboard className="w-4 h-4 text-gold" />
                   </motion.button>
                 </div>
-                <p className="text-[9px] text-muted-foreground font-exo">
+                <p className="text-[10px] text-muted-foreground font-exo">
                   o pregúntame algo
                 </p>
               </div>
