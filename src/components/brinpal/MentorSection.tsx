@@ -170,7 +170,7 @@ const MentorSection = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           />
 
-          {/* Gold collar shimmer — pulses when particles land */}
+          {/* Gold collar shimmer — 3s sustained glow after particles land */}
           <AnimatePresence>
             {isProcessing && (
               <motion.div
@@ -178,21 +178,56 @@ const MentorSection = () => {
                 className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
                 style={{
                   bottom: "18%",
-                  width: 90,
-                  height: 18,
+                  width: 100,
+                  height: 22,
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(ellipse, hsla(43,90%,65%,0.95) 0%, hsla(43,80%,55%,0.5) 40%, transparent 75%)",
+                    "radial-gradient(ellipse, hsla(43,100%,70%,1) 0%, hsla(43,90%,60%,0.7) 35%, hsla(43,80%,50%,0.3) 60%, transparent 80%)",
                   filter: "blur(2px)",
                   mixBlendMode: "screen",
                 }}
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{
-                  opacity: [0, 1, 0.7, 1, 0],
-                  scale: [0.6, 1.2, 1, 1.3, 0.8],
+                  opacity: [0, 1, 1, 1, 1, 0],
+                  scale: [0.6, 1.2, 1.05, 1.15, 1.05, 0.9],
                 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1.6, delay: 0.5, ease: "easeInOut", times: [0, 0.35, 0.55, 0.8, 1] }}
+                transition={{
+                  duration: 3,
+                  delay: 1.0,
+                  ease: "easeInOut",
+                  times: [0, 0.12, 0.35, 0.6, 0.85, 1],
+                }}
+              />
+            )}
+          </AnimatePresence>
+
+          {/* Headband (diadema) violet tint — 3s vivid violet replacing cyan */}
+          <AnimatePresence>
+            {isProcessing && (
+              <motion.div
+                key="diadem-violet"
+                className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+                style={{
+                  top: "12%",
+                  width: 95,
+                  height: 30,
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(ellipse, hsla(280,100%,70%,1) 0%, hsla(275,100%,60%,0.85) 30%, hsla(265,95%,50%,0.5) 55%, transparent 80%)",
+                  filter: "blur(2px) saturate(1.4)",
+                  mixBlendMode: "screen",
+                  boxShadow: "0 0 25px hsla(280,100%,65%,0.7), 0 0 45px hsla(280,100%,55%,0.4)",
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1, 1, 1, 0] }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 3,
+                  delay: 0.8,
+                  ease: "easeInOut",
+                  times: [0, 0.1, 0.5, 0.85, 1],
+                }}
               />
             )}
           </AnimatePresence>
