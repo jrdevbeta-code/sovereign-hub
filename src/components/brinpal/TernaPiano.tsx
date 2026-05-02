@@ -100,7 +100,7 @@ const TernaPiano = () => {
               {strip.value}
             </span>
             <span
-              className="text-[8px] font-orbitron mt-0.5"
+              className="text-[9px] font-orbitron mt-0.5"
               style={{ color: strip.labelColor, fontWeight: 900 }}
             >
               {strip.label}
