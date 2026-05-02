@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { TrendingUp, Users, Sparkles, Mic, Keyboard, X } from "lucide-react";
+import { TrendingUp, Users, Sparkles, Mic, Keyboard, X, Send } from "lucide-react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
