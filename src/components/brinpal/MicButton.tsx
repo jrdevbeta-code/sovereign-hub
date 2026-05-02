@@ -85,6 +85,15 @@ const MicButton = () => {
             >
               <Keyboard className="w-4 h-4 text-cyan" />
             </motion.button>
+
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => window.dispatchEvent(new CustomEvent("brinpal:procesar"))}
+              className="ml-1 px-3 py-1.5 text-[10px] font-orbitron tracking-widest uppercase rounded-full text-cyan border border-cyan/30 hover:bg-cyan/10 transition"
+            >
+              Procesar
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
