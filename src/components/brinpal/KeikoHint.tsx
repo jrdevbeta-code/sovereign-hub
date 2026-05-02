@@ -112,7 +112,7 @@ const KeikoHint = () => {
     {
       id: "netflix",
       Icon: Film,
-      iconColor: "hsl(0,75%,60%)",
+      iconColor: "hsl(28,90%,62%)",
       label: "Cine",
       background: "hsla(0,75%,55%,0.06)",
       border: "1px solid hsla(28,90%,62%,0.38)",
@@ -124,7 +124,7 @@ const KeikoHint = () => {
     {
       id: "music",
       Icon: Music,
-      iconColor: "hsl(280,70%,70%)",
+      iconColor: "hsl(165,70%,55%)",
       label: "Música",
       background: "hsla(280,60%,55%,0.06)",
       border: "1px solid hsla(165,70%,55%,0.38)",
