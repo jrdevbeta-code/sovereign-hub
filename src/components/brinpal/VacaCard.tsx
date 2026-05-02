@@ -131,7 +131,7 @@ const VacaCard = () => {
             </div>
           </div>
         ))}
-        <Users className="w-4 h-4 text-muted-foreground ml-auto" />
+        
       </div>
 
       {/* Expanded details */}
