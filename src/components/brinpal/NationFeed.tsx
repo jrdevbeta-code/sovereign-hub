@@ -36,7 +36,7 @@ const feedItems: FeedItem[] = [
     },
   },
   {
-    icon: TrendingUp,
+    icon: RadarIcon,
     accent: "gold",
     title: "Alerta de precio",
     description: "El arroz subió 12% en tu zona",
@@ -52,7 +52,7 @@ const feedItems: FeedItem[] = [
   },
   {
     icon: RadarIcon,
-    accent: "cyan",
+    accent: "gold",
     title: "Radar comunitario",
     description: "3 reportes nuevos cerca de ti",
     time: "Hace 1h",
