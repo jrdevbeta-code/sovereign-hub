@@ -199,6 +199,8 @@ const KeikoHint = () => {
               {/* Insights cards - scroll horizontal */}
               <div
                 className="keiko-panel-scroll"
+                onWheelCapture={(e) => e.stopPropagation()}
+                onTouchMoveCapture={(e) => e.stopPropagation()}
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -207,10 +209,10 @@ const KeikoHint = () => {
                   overflowY: "auto",
                   padding: "4px 2px",
                   maxHeight: "calc(90vh - 220px)",
-                  scrollSnapType: "y mandatory",
                   WebkitOverflowScrolling: "touch",
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
+                  overscrollBehavior: "contain",
+                  scrollbarWidth: "thin",
+                  msOverflowStyle: "auto",
                 }}
               >
                 {/* Tarjeta 1 — Radar */}
