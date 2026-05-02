@@ -35,6 +35,14 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
 
 const KeikoHint = () => {
   const [estado, setEstado] = useState<Estado>("hidden");
+  const [showInput, setShowInput] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSend = () => {
+    if (!inputValue.trim()) return;
+    setInputValue("");
+    setShowInput(false);
+  };
 
   useEffect(() => {
     if (estado !== "hidden") return;
