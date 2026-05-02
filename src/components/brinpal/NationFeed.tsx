@@ -136,7 +136,7 @@ const NationFeed = () => {
           <circle cx="20" cy="20" r="3" fill="hsl(43,80%,62%)" stroke="none" className="bgn"/>
         </svg>
         Eco-Esfera
-        <span className="text-cyan" style={{ fontSize: '2.5em', verticalAlign: 'middle', lineHeight: 0, position: 'relative', top: '-2px', marginLeft: '5px' }}>∞</span>
+        <span className="text-cyan" style={{ fontSize: '2.5em', verticalAlign: 'middle', lineHeight: 0, position: 'relative', top: '-2px', marginLeft: '-1px' }}>∞</span>
       </p>
       <div className="space-y-2">
         {feedItems.map((item, i) => {
