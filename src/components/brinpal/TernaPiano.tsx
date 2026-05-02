@@ -48,7 +48,7 @@ const TernaPiano = () => {
         <p className="text-sm font-semibold text-foreground">
           Queso · El Marqués
         </p>
-        <p className="text-[10px] text-muted-foreground mt-0.5 font-exo">
+        <p className="text-[10px] mt-0.5 font-exo" style={{ color: "hsla(0,0%,100%,0.8)" }}>
           Último reporte: Hace 2h
         </p>
 
@@ -100,7 +100,7 @@ const TernaPiano = () => {
               {strip.value}
             </span>
             <span
-              className="text-[9px] font-orbitron mt-0.5"
+              className="text-[10px] font-orbitron mt-0.5"
               style={{ color: strip.labelColor, fontWeight: 900 }}
             >
               {strip.label}
