@@ -161,7 +161,7 @@ const KeikoHint = () => {
               originX: 0,
               originY: 1,
               width: "calc(100vw - 72px)",
-              maxHeight: "55vh",
+              maxHeight: "72vh",
               left: "44px",
               bottom: "214px",
               maxWidth: 360,
@@ -191,12 +191,13 @@ const KeikoHint = () => {
                 className="keiko-panel-scroll"
                 style={{
                   display: "flex",
-                  flexDirection: "row",
+                  flexDirection: "column",
                   gap: "10px",
-                  overflowX: "auto",
-                  overflowY: "hidden",
+                  overflowX: "hidden",
+                  overflowY: "auto",
                   padding: "8px",
-                  scrollSnapType: "x mandatory",
+                  maxHeight: "calc(72vh - 110px)",
+                  scrollSnapType: "y mandatory",
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
@@ -209,7 +210,7 @@ const KeikoHint = () => {
                     background: "hsla(43,80%,60%,0.06)",
                     border: "1px solid hsla(43,80%,60%,0.1)",
                     padding: "10px 12px",
-                    minWidth: "220px",
+                    width: "100%",
                     scrollSnapAlign: "start",
                   }}
                 >
@@ -228,7 +229,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     El arroz subió 12% en El Marqués
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,72%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
                     Mejor comprarlo hoy — tendencia alcista esta semana
                   </p>
                   <InlineTerna bs="3,20" bcv="0,09" bp="0,09" />
@@ -241,7 +242,7 @@ const KeikoHint = () => {
                     background: "hsla(185,100%,50%,0.06)",
                     border: "1px solid hsla(185,100%,50%,0.1)",
                     padding: "10px 12px",
-                    minWidth: "220px",
+                    width: "100%",
                     scrollSnapAlign: "start",
                   }}
                 >
@@ -260,7 +261,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Ana acaba de unirse a Vecinos del Marqués
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,72%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
                     Referida por Carlos · Tu círculo ahora tiene 12 activos
                   </p>
                 </div>
@@ -272,7 +273,7 @@ const KeikoHint = () => {
                     background: "hsla(43,80%,60%,0.06)",
                     border: "1px solid hsla(43,80%,60%,0.1)",
                     padding: "10px 12px",
-                    minWidth: "220px",
+                    width: "100%",
                     scrollSnapAlign: "start",
                   }}
                 >
@@ -291,7 +292,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Tu propuesta tiene 4 días sin respuesta
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,72%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
                     El comité revisa ideas cada 1ro de mes · Faltan 6 días
                   </p>
                 </div>
