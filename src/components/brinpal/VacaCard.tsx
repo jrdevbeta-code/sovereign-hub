@@ -109,9 +109,9 @@ const VacaCard = () => {
         {progressPercent}% completado · Juan y Carlos faltan por pagar
       </p>
 
-      {/* Members with micro-piano */}
+      {/* Members with micro-piano (mostrar máx 2; el resto en detalle) */}
       <div className="flex flex-col gap-2">
-        {members.map((m, i) => (
+        {members.slice(0, 2).map((m, i) => (
           <div key={i} className="flex items-center gap-2">
             <div
               className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
@@ -126,12 +126,19 @@ const VacaCard = () => {
               {m.letter}
             </div>
             <span className="text-[11px] text-foreground font-exo shrink-0">{m.name}</span>
-            <div className="ml-auto w-[115px] shrink-0 mr-1">
+            <div className="ml-auto w-[115px] shrink-0 mr-3">
               <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
             </div>
           </div>
         ))}
-        
+        {members.length > 2 && (
+          <button
+            className="text-[10px] font-orbitron text-cyan/80 hover:text-cyan self-start mt-0.5"
+            onClick={(e) => { e.stopPropagation(); setExpanded(true); }}
+          >
+            +{members.length - 2} más · ver detalle →
+          </button>
+        )}
       </div>
 
       {/* Expanded details */}
