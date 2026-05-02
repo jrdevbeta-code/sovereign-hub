@@ -28,6 +28,12 @@ const MentorSection = () => {
     setTimeout(() => setIsProcessing(false), 1400);
   };
 
+  useEffect(() => {
+    const onProc = () => handleProcess();
+    window.addEventListener("brinpal:procesar", onProc);
+    return () => window.removeEventListener("brinpal:procesar", onProc);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
