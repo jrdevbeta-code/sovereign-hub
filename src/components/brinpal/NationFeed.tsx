@@ -101,7 +101,7 @@ const NationFeed = () => {
       <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase mb-3">
         <Satellite className="w-3.5 h-3.5 text-cyan inline mr-1.5" />
         Eco-Esfera
-        <span className="text-cyan ml-1.5">∞</span>
+        <span className="text-cyan ml-1.5" style={{ fontSize: '2.5em', verticalAlign: 'middle', lineHeight: 0 }}>∞</span>
       </p>
       <div className="space-y-2">
         {feedItems.map((item, i) => {
