@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
 // 24 particles distributed across 4 edges (6 per edge)
