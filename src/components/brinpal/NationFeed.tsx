@@ -127,8 +127,8 @@ const NationFeed = () => {
                   >
                     <div
                       className="px-3 pb-3 pt-2 text-[11px] font-exo leading-relaxed"
-                      style={{ color: "hsla(0,0%,100%,0.8)" } as any}
                       style={{
+                        color: "hsla(0,0%,100%,0.8)",
                         borderTop: `1px solid ${isCyan ? "hsla(185,100%,50%,0.1)" : "hsla(43,80%,60%,0.1)"}`,
                       }}
                     >
