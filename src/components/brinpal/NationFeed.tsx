@@ -19,7 +19,7 @@ const feedItems = [
     description: "El arroz subió 12% en tu zona",
     time: "Hace 20 min",
     details: "Tendencia alcista en toda Caracas.",
-    priceData: { bs: "3,20", bcv: "0,09", bp: "0,09" },
+    priceData: { bs: "321.524,89", bcv: "662,93", bp: "502,45" },
   },
   {
     icon: Radio,
@@ -28,28 +28,36 @@ const feedItems = [
     description: "3 reportes nuevos cerca de ti",
     time: "Hace 1h",
     details: "Dos reportes de precios actualizados en bodegones y un reporte de gas.",
-    priceData: { bs: "15,00", bcv: "0,41", bp: "0,41" },
+    priceData: { bs: "321.524,89", bcv: "662,93", bp: "502,45" },
   },
 ];
 
-const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => (
-  <div className="flex gap-1 mt-2">
-    {[
-      { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
-      { label: "BCV", value: bcv, bg: "hsl(216,80%,50%)", color: "hsl(0,0%,100%)" },
-      { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)" },
-    ].map((s) => (
-      <div
-        key={s.label}
-        className="flex-1 py-1 flex flex-col items-center rounded-md"
-        style={{ background: s.bg, color: s.color, flexGrow: s.value.length > 4 ? 1.2 : 1 }}
-      >
-        <span className="text-[8px] font-orbitron font-bold">{s.value}</span>
-        <span className="text-[6px] font-orbitron font-bold opacity-70">{s.label}</span>
-      </div>
-    ))}
-  </div>
-);
+const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => {
+  const segments = [
+    { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
+    { label: "BCV", value: bcv, bg: "hsl(216,80%,50%)", color: "hsl(0,0%,100%)" },
+    { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)" },
+  ];
+  return (
+    <div className="flex flex-col gap-[1px] rounded-md overflow-hidden mt-2">
+      {segments.map((seg) => (
+        <div
+          key={seg.label}
+          className="flex items-center justify-between gap-1.5 px-2 py-[2px]"
+          style={{ background: seg.bg, color: seg.color }}
+        >
+          <span className="text-[8px] font-orbitron font-bold">{seg.label}</span>
+          <span
+            className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
+            style={{ fontWeight: 900 }}
+          >
+            {seg.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const NationFeed = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -93,12 +101,12 @@ const NationFeed = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-semibold text-foreground">{item.title}</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5 truncate">
+                  <p className="text-[11px] text-muted-foreground mt-0.5 truncate font-bold">
                     {item.description}
                   </p>
                 </div>
                 <div className="flex flex-col items-end shrink-0 gap-1">
-                  <span className="text-[9px] text-muted-foreground font-exo">{item.time}</span>
+                  <span className="text-[9px] text-muted-foreground font-exo font-bold">{item.time}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
