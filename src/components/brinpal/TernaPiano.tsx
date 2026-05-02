@@ -85,21 +85,22 @@ const TernaPiano = () => {
             initial={{ opacity: 0, scaleY: 0.8 }}
             animate={{ opacity: 1, scaleY: 1 }}
             transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
-            className="flex-1 py-2.5 flex flex-col items-center justify-center origin-bottom"
+            className="py-2.5 px-1.5 flex flex-col items-center justify-center origin-bottom min-w-0"
             style={{
               background: strip.bg,
               borderRadius: i === 0 ? "0 0 0 1rem" : i === 2 ? "0 0 1rem 0" : "0",
-              flexGrow: strip.value.length > 5 ? 1.3 : 1,
+              flexGrow: strip.weight,
+              flexBasis: 0,
             }}
           >
             <span
-              className="text-[11px] font-orbitron font-bold leading-tight"
+              className="text-[12px] font-orbitron font-bold leading-tight whitespace-nowrap"
               style={{ color: strip.textColor }}
             >
               {strip.value}
             </span>
             <span
-              className="text-[7px] font-orbitron font-bold mt-0.5"
+              className="text-[8px] font-orbitron font-bold mt-0.5"
               style={{ color: strip.labelColor }}
             >
               {strip.label}
