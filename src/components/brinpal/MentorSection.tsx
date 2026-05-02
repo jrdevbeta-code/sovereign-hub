@@ -14,7 +14,7 @@ const MentorSection = () => {
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-3 rounded-full bg-cyan/30 blur-md" />
         <motion.img
           src={mentorImg}
-          alt="El Mentor - Tu guía digital"
+          alt="Keiko - Tu asistente"
           width={200}
           height={200}
           className="mentor-glow float-animation relative z-10"
@@ -28,7 +28,7 @@ const MentorSection = () => {
         transition={{ delay: 0.8 }}
         className="mt-1 text-sm text-muted-foreground font-exo text-center"
       >
-        Hola, soy <span className="text-cyan cyan-glow font-semibold">El Mentor</span>. ¿En qué te ayudo hoy?
+        Hola, soy <span className="text-cyan cyan-glow font-semibold">Keiko</span>. ¿En qué te ayudo hoy?
       </motion.p>
     </motion.section>
   );
