@@ -52,7 +52,7 @@ const feedItems: FeedItem[] = [
   },
   {
     icon: RadarIcon,
-    accent: "cyan",
+    accent: "gold",
     title: "Radar comunitario",
     description: "3 reportes nuevos cerca de ti",
     time: "Hace 1h",
