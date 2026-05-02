@@ -1,15 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const members = [
-  { name: "Juan", letter: "J", bs: "80,00", bcv: "2,19", bp: "2,19", paid: false },
-  { name: "María", letter: "M", bs: "80,00", bcv: "2,19", bp: "2,19", paid: true },
-  { name: "Carlos", letter: "C", bs: "80,00", bcv: "2,19", bp: "2,19", paid: false },
+  { name: "Juan", letter: "J", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: false },
+  { name: "María", letter: "M", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: true },
+  { name: "Carlos", letter: "C", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: false },
 ];
 
-const totalBs = 240;
-const paidBs = 80;
+const totalBs = 321524.89;
+const paidBs = 107174.96;
 const progressPercent = Math.round((paidBs / totalBs) * 100);
 
 const avatarGradients = [
@@ -26,17 +26,17 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
   ];
 
   return (
-    <div className="flex flex-col gap-[1px] rounded-md overflow-visible">
+    <div className="flex flex-col gap-[1px] rounded-md overflow-visible min-w-0">
       {segments.map((seg) => {
         const isActive = seg.key === activeCurrency;
         return (
           <div
             key={seg.key}
-            className="flex items-center justify-between px-1.5 py-[2px]"
+            className="flex items-center justify-between gap-1.5 px-1.5 py-[2px]"
             style={{
               background: seg.bg,
               color: seg.color,
-              transform: isActive ? "scale(1.12) translateX(2px)" : "scale(1)",
+              transform: isActive ? "scale(1.10) translateX(2px)" : "scale(1)",
               boxShadow: isActive
                 ? "0 3px 12px hsla(145,60%,40%,0.6), 0 0 0 1.5px hsla(145,60%,40%,0.4)"
                 : "none",
@@ -46,8 +46,8 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
               transition: "all 0.25s ease",
             }}
           >
-            <span className="text-[6px] font-orbitron font-bold">{seg.label}</span>
-            <span className="text-[7px] font-orbitron font-bold ml-1">{seg.value}</span>
+            <span className="text-[7px] font-orbitron font-bold">{seg.label}</span>
+            <span className="text-[8px] font-orbitron font-bold ml-auto whitespace-nowrap">{seg.value}</span>
           </div>
         );
       })}
@@ -86,8 +86,8 @@ const VacaCard = () => {
       {/* Total amount */}
       <div className="flex items-center justify-between mb-2">
         <p className="text-sm font-semibold text-foreground">Reunión pendiente</p>
-        <p className="text-sm font-orbitron font-bold text-gold gold-glow">
-          240,00 <span className="text-[9px] font-bold">Bs</span>
+        <p className="text-sm font-orbitron font-bold text-gold gold-glow whitespace-nowrap">
+          321.524,89 <span className="text-[9px] font-bold">Bs</span>
         </p>
       </div>
 
@@ -110,9 +110,9 @@ const VacaCard = () => {
       </p>
 
       {/* Members with micro-piano */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-2">
         {members.map((m, i) => (
-          <div key={i} className="flex items-center gap-1.5">
+          <div key={i} className="flex items-center gap-2">
             <div
               className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
               style={{
@@ -125,10 +125,13 @@ const VacaCard = () => {
             >
               {m.letter}
             </div>
-            <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
+            <span className="text-[11px] text-foreground font-exo w-14 shrink-0">{m.name}</span>
+            <div className="flex-1 min-w-0">
+              <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
+            </div>
           </div>
         ))}
-        <Users className="w-4 h-4 text-muted-foreground ml-auto" />
+        
       </div>
 
       {/* Expanded details */}
