@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { TrendingUp, Users, Sparkles, Mic, Keyboard, X } from "lucide-react";
+import { TrendingUp, Users, Sparkles, Mic, Keyboard, X, Send } from "lucide-react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
@@ -35,6 +35,14 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
 
 const KeikoHint = () => {
   const [estado, setEstado] = useState<Estado>("hidden");
+  const [showInput, setShowInput] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSend = () => {
+    if (!inputValue.trim()) return;
+    setInputValue("");
+    setShowInput(false);
+  };
 
   useEffect(() => {
     if (estado !== "hidden") return;
@@ -315,34 +323,105 @@ const KeikoHint = () => {
 
               {/* Footer */}
               <div
-                className="mt-3 pt-2 flex flex-col items-center gap-1"
+                className="mt-3 pt-2 flex flex-col items-center gap-2"
                 style={{ borderTop: "1px solid hsla(185,100%,50%,0.08)" }}
               >
-                <div className="flex items-center justify-center gap-3">
-                  <motion.button
-                    whileTap={{ scale: 0.9 }}
-                    className="w-8 h-8 rounded-full flex items-center justify-center"
-                    style={{
-                      background: "hsla(185,100%,50%,0.1)",
-                      border: "1px solid hsla(185,100%,50%,0.25)",
-                    }}
-                  >
-                    <Mic className="w-4 h-4 text-cyan" />
-                  </motion.button>
-                  <motion.button
-                    whileTap={{ scale: 0.9 }}
-                    className="w-8 h-8 rounded-full flex items-center justify-center"
-                    style={{
-                      background: "hsla(43,80%,60%,0.1)",
-                      border: "1px solid hsla(43,80%,60%,0.25)",
-                    }}
-                  >
-                    <Keyboard className="w-4 h-4 text-gold" />
-                  </motion.button>
-                </div>
-                <p className="text-[12px] font-exo" style={{ color: "hsl(210,10%,80%)" }}>
-                  o pregúntame algo
-                </p>
+                <AnimatePresence mode="wait">
+                  {!showInput ? (
+                    <motion.div
+                      key="buttons"
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.18 }}
+                      className="flex flex-col items-center gap-1"
+                    >
+                      <div className="flex items-center justify-center gap-3">
+                        <motion.button
+                          whileTap={{ scale: 0.9 }}
+                          className="w-8 h-8 rounded-full flex items-center justify-center"
+                          style={{
+                            background: "hsla(185,100%,50%,0.1)",
+                            border: "1px solid hsla(185,100%,50%,0.25)",
+                          }}
+                        >
+                          <Mic className="w-4 h-4 text-cyan" />
+                        </motion.button>
+                        <motion.button
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => setShowInput(true)}
+                          className="w-8 h-8 rounded-full flex items-center justify-center"
+                          style={{
+                            background: "hsla(43,80%,60%,0.1)",
+                            border: "1px solid hsla(43,80%,60%,0.25)",
+                          }}
+                        >
+                          <Keyboard className="w-4 h-4 text-gold" />
+                        </motion.button>
+                      </div>
+                      <p className="text-[12px] font-exo" style={{ color: "hsl(210,10%,80%)" }}>
+                        o pregúntame algo
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="input"
+                      initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                      transition={{ duration: 0.22, ease: [0.34, 1.56, 0.64, 1] }}
+                      className="w-full"
+                    >
+                      <div
+                        className="flex items-center gap-1.5 rounded-full pl-3 pr-1 py-1"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, hsla(216,30%,14%,0.9), hsla(216,30%,8%,0.7))",
+                          border: "1px solid hsla(43,80%,60%,0.35)",
+                          boxShadow:
+                            "0 0 12px hsla(43,80%,60%,0.15), inset 0 0 8px hsla(43,80%,60%,0.05)",
+                        }}
+                      >
+                        <input
+                          autoFocus
+                          value={inputValue}
+                          onChange={(e) => setInputValue(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") handleSend();
+                            if (e.key === "Escape") setShowInput(false);
+                          }}
+                          placeholder="Pregúntale a Keiko…"
+                          className="flex-1 bg-transparent border-0 outline-none text-[12px] font-exo placeholder:text-muted-foreground"
+                          style={{ color: "hsl(0,0%,100%)" }}
+                        />
+                        <motion.button
+                          whileTap={{ scale: 0.88 }}
+                          onClick={() => setShowInput(false)}
+                          className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+                          style={{ color: "hsla(0,0%,100%,0.6)" }}
+                          aria-label="Ocultar entrada"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </motion.button>
+                        <motion.button
+                          whileTap={{ scale: 0.88 }}
+                          onClick={handleSend}
+                          disabled={!inputValue.trim()}
+                          className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-opacity"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, hsl(43,80%,60%), hsl(43,90%,50%))",
+                            opacity: inputValue.trim() ? 1 : 0.4,
+                            boxShadow: "0 0 10px hsla(43,80%,60%,0.5)",
+                          }}
+                          aria-label="Enviar"
+                        >
+                          <Send className="w-3.5 h-3.5" style={{ color: "hsl(216,40%,8%)" }} />
+                        </motion.button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </motion.div>
