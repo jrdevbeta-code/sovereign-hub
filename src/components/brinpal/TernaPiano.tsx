@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Satellite, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
+import RadarIcon from "./RadarIcon";
 
 const strips = [
   {
