@@ -25,9 +25,9 @@ const NeonBorder = () => {
           rx="16" ry="16"
           fill="none"
           stroke="url(#neon-grad)"
-          strokeWidth="3.45"
+          strokeWidth="3.8"
           strokeDasharray="120 500"
-          className="animate-[neon-race_3.45s_ease-in-out_infinite]"
+          className="animate-[neon-race_3.8s_ease-in-out_infinite]"
         />
         {/* Secondary light train — offset */}
         <rect
@@ -36,9 +36,9 @@ const NeonBorder = () => {
           rx="16" ry="16"
           fill="none"
           stroke="url(#neon-grad-2)"
-          strokeWidth="2.3"
+          strokeWidth="2.55"
           strokeDasharray="60 600"
-          className="animate-[neon-race-reverse_5.75s_ease-in-out_infinite]"
+          className="animate-[neon-race-reverse_6.3s_ease-in-out_infinite]"
         />
       </svg>
       {/* Static subtle border */}
