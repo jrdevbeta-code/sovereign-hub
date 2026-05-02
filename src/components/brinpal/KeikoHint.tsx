@@ -228,7 +228,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     El arroz subió 12% en El Marqués
                   </p>
-                  <p className="text-[12px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,72%)" }}>
                     Mejor comprarlo hoy — tendencia alcista esta semana
                   </p>
                   <InlineTerna bs="3,20" bcv="0,09" bp="0,09" />
@@ -260,7 +260,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Ana acaba de unirse a Vecinos del Marqués
                   </p>
-                  <p className="text-[12px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,72%)" }}>
                     Referida por Carlos · Tu círculo ahora tiene 12 activos
                   </p>
                 </div>
@@ -291,7 +291,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Tu propuesta tiene 4 días sin respuesta
                   </p>
-                  <p className="text-[12px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,72%)" }}>
                     El comité revisa ideas cada 1ro de mes · Faltan 6 días
                   </p>
                 </div>
@@ -324,7 +324,7 @@ const KeikoHint = () => {
                     <Keyboard className="w-4 h-4 text-gold" />
                   </motion.button>
                 </div>
-                <p className="text-[12px] text-muted-foreground font-exo">
+                <p className="text-[12px] font-exo" style={{ color: "hsl(210,10%,72%)" }}>
                   o pregúntame algo
                 </p>
               </div>
