@@ -101,12 +101,12 @@ const NationFeed = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-semibold text-foreground">{item.title}</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5 truncate">
+                  <p className="text-[11px] text-muted-foreground mt-0.5 truncate font-bold">
                     {item.description}
                   </p>
                 </div>
                 <div className="flex flex-col items-end shrink-0 gap-1">
-                  <span className="text-[9px] text-muted-foreground font-exo">{item.time}</span>
+                  <span className="text-[9px] text-muted-foreground font-exo font-bold">{item.time}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
