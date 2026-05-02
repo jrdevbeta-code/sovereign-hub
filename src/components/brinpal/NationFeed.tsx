@@ -160,16 +160,15 @@ const NationFeed = () => {
                         fontWeight: 600,
                         padding: '2px 8px',
                         borderRadius: '100px',
-                        letterSpacing: '0.04em',
+                        letterSpacing: '0.19em',
                         background: 'rgba(255,255,255,0.06)',
-                        color: 'rgba(255,255,255,0.70)',
+                        color: 'rgba(255,255,255,1)',
                         border: '1px solid rgba(255,255,255,0.18)',
                       }}
                     >
                       {item.badge.sub}
                     </span>
                   </div>
-                  <p className="text-xs font-semibold text-foreground">{item.title}</p>
                   <p className="text-[11px] mt-0.5 truncate font-bold" style={{ color: "hsla(0,0%,100%,0.8)" }}>
                     {item.description}
                   </p>
