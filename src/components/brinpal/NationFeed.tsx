@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Radio, Users, TrendingUp, ChevronDown } from "lucide-react";
+import { Radio, Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
 import { useState } from "react";
 
 const feedItems = [
@@ -57,7 +57,9 @@ const NationFeed = () => {
   return (
     <div className="px-5 pb-4">
       <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase mb-3">
-        📡 Feed de la Nación
+        <Satellite className="w-3.5 h-3.5 text-cyan inline mr-1.5" />
+        Eco-Esfera
+        <span className="text-cyan ml-1.5">∞</span>
       </p>
       <div className="space-y-2">
         {feedItems.map((item, i) => {
