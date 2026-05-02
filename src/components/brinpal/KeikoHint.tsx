@@ -6,6 +6,21 @@ import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
 
+type InsightCard = {
+  id: string;
+  Icon: typeof TrendingUp;
+  iconClassName?: string;
+  iconColor?: string;
+  label: string;
+  background: string;
+  border: string;
+  pillBg: string;
+  pillColor: string;
+  title: string;
+  description: string;
+  terna?: { bs: string; bcv: string; bp: string };
+};
+
 const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => {
   const segments = [
     { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
@@ -56,7 +71,7 @@ const KeikoHint = () => {
   const isActive = estado === "peeking" || estado === "open";
   const miniX = isActive ? 0 : -60;
 
-  const insightCards = [
+  const insightCards: InsightCard[] = [
     {
       id: "radar",
       Icon: TrendingUp,
