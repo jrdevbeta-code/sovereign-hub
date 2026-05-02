@@ -69,15 +69,15 @@ const KeikoHint = () => {
       {/* Línea decorativa detrás de mini-Keiko */}
       <motion.div
         animate={{
-          x: estado === "hidden" ? -40 : 0,
-          opacity: estado === "hidden" ? 0 : 0.5,
+          x: estado === "peeking" ? 0 : -40,
+          opacity: estado === "peeking" ? 0.5 : 0,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 24 }}
         style={{
           position: "fixed",
           left: 0,
           bottom: "244px",
-          width: "26px",
+          width: "20px",
           height: "2px",
           background:
             "linear-gradient(90deg, transparent 0%, hsl(185,100%,50%) 60%, hsl(185,100%,70%) 100%)",
