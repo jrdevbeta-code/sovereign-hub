@@ -134,6 +134,41 @@ const NationFeed = () => {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        fontSize: '9px',
+                        fontWeight: 700,
+                        padding: '2px 8px',
+                        borderRadius: '100px',
+                        letterSpacing: '0.05em',
+                        background: 'rgba(255,255,255,0.06)',
+                        color: item.badge.moduleColor,
+                        border: `1px solid ${item.badge.moduleBorder}`,
+                      }}
+                    >
+                      {item.badge.module}
+                    </span>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        fontSize: '9px',
+                        fontWeight: 600,
+                        padding: '2px 8px',
+                        borderRadius: '100px',
+                        letterSpacing: '0.04em',
+                        background: 'rgba(255,255,255,0.06)',
+                        color: 'rgba(255,255,255,0.70)',
+                        border: '1px solid rgba(255,255,255,0.18)',
+                      }}
+                    >
+                      {item.badge.sub}
+                    </span>
+                  </div>
                   <p className="text-xs font-semibold text-foreground">{item.title}</p>
                   <p className="text-[11px] mt-0.5 truncate font-bold" style={{ color: "hsla(0,0%,100%,0.8)" }}>
                     {item.description}
