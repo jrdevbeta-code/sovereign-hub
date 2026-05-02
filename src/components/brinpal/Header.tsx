@@ -117,7 +117,10 @@ const Header = () => {
               ⬡
             </div>
           </div>
-          <span className="text-[8px] font-orbitron tracking-widest text-muted-foreground uppercase">
+          <span
+            className="text-[8px] font-orbitron tracking-widest uppercase"
+            style={{ color: "hsla(0,0%,100%,0.8)" }}
+          >
             Virtual ID
           </span>
         </motion.button>
