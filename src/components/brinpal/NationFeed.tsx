@@ -1,9 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Radio, Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
-import { useState } from "react";
+import { Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
+import RadarIcon from "./RadarIcon";
+import React, { useState } from "react";
 
 interface FeedItem {
-  icon: typeof Users;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   accent: string;
   title: string;
   description: string;
@@ -50,7 +51,7 @@ const feedItems: FeedItem[] = [
     },
   },
   {
-    icon: Radio,
+    icon: RadarIcon,
     accent: "cyan",
     title: "Radar comunitario",
     description: "3 reportes nuevos cerca de ti",

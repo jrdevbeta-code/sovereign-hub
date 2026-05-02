@@ -1,14 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { TrendingUp, Users, Sparkles, Mic, Keyboard, X, Send, Film, Music } from "lucide-react";
+import RadarIcon from "./RadarIcon";
 import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
 
 type InsightCard = {
   id: string;
-  Icon: typeof TrendingUp;
+  Icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   iconClassName?: string;
   iconColor?: string;
   label: string;
@@ -74,7 +75,7 @@ const KeikoHint = () => {
   const insightCards: InsightCard[] = [
     {
       id: "radar",
-      Icon: TrendingUp,
+      Icon: RadarIcon,
       iconClassName: "text-gold",
       label: "Radar",
       background: "hsla(43,80%,60%,0.06)",
