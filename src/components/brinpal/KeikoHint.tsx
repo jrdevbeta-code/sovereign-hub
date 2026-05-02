@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { TrendingUp, Users, Sparkles, Mic, Keyboard, X, Send } from "lucide-react";
+import { TrendingUp, Users, Sparkles, Mic, Keyboard, X, Send, Film, Music } from "lucide-react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
@@ -317,6 +317,68 @@ const KeikoHint = () => {
                   </p>
                   <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
                     El comité revisa ideas cada 1ro de mes · Faltan 6 días
+                  </p>
+                </div>
+
+                {/* Tarjeta 4 — Ocio · Netflix */}
+                <div
+                  className="rounded-xl"
+                  style={{
+                    background: "hsla(0,75%,55%,0.06)",
+                    border: "1px solid hsla(0,75%,55%,0.12)",
+                    padding: "10px 10px",
+                    width: "100%",
+                    scrollSnapAlign: "start",
+                  }}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <Film className="w-3.5 h-3.5" style={{ color: "hsl(0,75%,60%)" }} />
+                    <span
+                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
+                      style={{
+                        background: "hsla(0,75%,55%,0.15)",
+                        color: "hsl(0,75%,65%)",
+                      }}
+                    >
+                      Ocio · Netflix
+                    </span>
+                  </div>
+                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
+                    "El Eternauta" — estreno trending #1
+                  </p>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                    Sci-fi argentina · 6 episodios · 94% match para tu gusto
+                  </p>
+                </div>
+
+                {/* Tarjeta 5 — Ocio · Música */}
+                <div
+                  className="rounded-xl"
+                  style={{
+                    background: "hsla(280,60%,55%,0.06)",
+                    border: "1px solid hsla(280,60%,55%,0.12)",
+                    padding: "10px 10px",
+                    width: "100%",
+                    scrollSnapAlign: "start",
+                  }}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <Music className="w-3.5 h-3.5" style={{ color: "hsl(280,70%,70%)" }} />
+                    <span
+                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
+                      style={{
+                        background: "hsla(280,60%,55%,0.15)",
+                        color: "hsl(280,70%,75%)",
+                      }}
+                    >
+                      Ocio · Música
+                    </span>
+                  </div>
+                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
+                    Alejandro Sanz lanza "Ascendente"
+                  </p>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                    12 tracks · Reseña: 4.6/5 · Flamenco-pop íntimo y maduro
                   </p>
                 </div>
               </div>
