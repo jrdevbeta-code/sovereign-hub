@@ -47,7 +47,7 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
             }}
           >
             <span className="text-[7px] font-orbitron font-bold">{seg.label}</span>
-            <span className="text-[8px] font-orbitron font-bold ml-auto whitespace-nowrap">{seg.value}</span>
+            <span className="text-[9px] font-orbitron font-bold ml-auto whitespace-nowrap">{seg.value}</span>
           </div>
         );
       })}
