@@ -101,11 +101,11 @@ const MentorSection = () => {
               animate="visible"
               exit="hidden"
               variants={{
-                visible: { transition: { staggerChildren: 0.025 } },
+                visible: { transition: { staggerChildren: 0.012 } },
                 hidden: {},
               }}
             >
-              {/* Faint star-shaped aura ring that expands outward as particles converge */}
+              {/* Faint gold aura ring that expands outward as particles converge */}
               <motion.div
                 className="absolute left-1/2 top-1/2 rounded-full pointer-events-none"
                 style={{
@@ -114,12 +114,12 @@ const MentorSection = () => {
                   marginLeft: -100,
                   marginTop: -100,
                   background:
-                    "radial-gradient(circle, transparent 55%, hsla(280,90%,60%,0.18) 65%, transparent 75%)",
+                    "radial-gradient(circle, transparent 55%, hsla(43,90%,60%,0.22) 65%, transparent 75%)",
                   filter: "blur(4px)",
                 }}
                 initial={{ scale: 0.4, opacity: 0 }}
                 animate={{ scale: [0.4, 1.1, 0.6], opacity: [0, 0.9, 0] }}
-                transition={{ duration: 1.4, ease: "easeOut" }}
+                transition={{ duration: 1.6, ease: "easeOut" }}
               />
 
               {PARTICLES.map((p) => (
@@ -130,22 +130,21 @@ const MentorSection = () => {
                     width: p.size,
                     height: p.size,
                     background: p.color,
-                    boxShadow: `0 0 8px ${p.color}, 0 0 14px ${p.color}`,
+                    boxShadow: `0 0 4px ${p.color}, 0 0 10px ${p.color}, 0 0 18px ${p.color}`,
                     left: 0,
                     top: 0,
                   }}
-                  initial={{ x: p.x, y: p.y, opacity: 0, scale: 0.6 }}
+                  initial={{ x: p.x, y: p.y, opacity: 0, scale: 0.4 }}
                   animate={{
-                    // Curved arc: pass through a control point before reaching center
-                    x: [p.x, p.x * 0.5 + CENTER * 0.5 + p.curveX, CENTER],
-                    y: [p.y, p.y * 0.5 + CENTER * 0.5 + p.curveY, CENTER],
+                    x: [p.x, p.x * 0.5 + p.tx * 0.5 + p.curveX, p.tx],
+                    y: [p.y, p.y * 0.5 + p.ty * 0.5 + p.curveY, p.ty],
                     opacity: [0, 1, 1, 0],
-                    scale: [0.6, 1.4, 1.6, 0.2],
+                    scale: [0.4, 1.6, 1.8, 0.3],
                   }}
                   transition={{
-                    duration: 1.3,
+                    duration: 1.4,
                     delay: p.delay,
-                    ease: [0.5, 0.05, 0.3, 1], // anticipate-then-zoom
+                    ease: [0.5, 0.05, 0.3, 1],
                     times: [0, 0.45, 0.85, 1],
                   }}
                 />
