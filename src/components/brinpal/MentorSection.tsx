@@ -153,33 +153,35 @@ const MentorSection = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           />
 
-          {/* Gold collar shimmer — 3s sustained glow after particles land */}
+          {/* Heart/collar inner glow — pulses inside Keiko's chest for 3s */}
           <AnimatePresence>
             {isProcessing && (
               <motion.div
-                key="collar-glow"
-                className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+                key="heart-glow"
+                className="absolute pointer-events-none"
                 style={{
-                  bottom: "18%",
-                  width: 100,
-                  height: 22,
+                  top: "58%",
+                  left: "50%",
+                  marginLeft: -18,
+                  width: 36,
+                  height: 36,
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(ellipse, hsla(43,100%,70%,1) 0%, hsla(43,90%,60%,0.7) 35%, hsla(43,80%,50%,0.3) 60%, transparent 80%)",
-                  filter: "blur(2px)",
+                    "radial-gradient(circle, hsla(45,100%,92%,1) 0%, hsla(43,100%,70%,0.95) 28%, hsla(40,95%,55%,0.55) 55%, transparent 78%)",
+                  filter: "blur(3px)",
                   mixBlendMode: "screen",
                 }}
-                initial={{ opacity: 0, scale: 0.6 }}
+                initial={{ opacity: 0, scale: 0.7 }}
                 animate={{
-                  opacity: [0, 1, 1, 1, 1, 0],
-                  scale: [0.6, 1.2, 1.05, 1.15, 1.05, 0.9],
+                  opacity: [0, 1, 0.75, 1, 0.7, 0],
+                  scale: [0.7, 1.15, 0.95, 1.18, 1, 0.85],
                 }}
                 exit={{ opacity: 0 }}
                 transition={{
                   duration: 3,
                   delay: 1.0,
                   ease: "easeInOut",
-                  times: [0, 0.12, 0.35, 0.6, 0.85, 1],
+                  times: [0, 0.18, 0.4, 0.62, 0.85, 1],
                 }}
               />
             )}
