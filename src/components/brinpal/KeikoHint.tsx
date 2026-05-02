@@ -185,7 +185,10 @@ const KeikoHint = () => {
             >
               {/* Header del panel */}
               <div className="flex items-center justify-between mb-2.5">
-                <p className="text-[11px] font-orbitron tracking-widest text-muted-foreground uppercase">
+                <p
+                  className="text-[11px] font-orbitron tracking-widest uppercase"
+                  style={{ color: "hsl(0,0%,100%)" }}
+                >
                   Keiko · Para ti ahora
                 </p>
                 <button
