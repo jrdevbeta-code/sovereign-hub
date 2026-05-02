@@ -107,8 +107,8 @@
   }
 
   .mentor-glow {
-    filter: drop-shadow(0 0 30px hsla(185, 100%, 50%, 0.4))
-            drop-shadow(0 0 60px hsla(43, 80%, 60%, 0.2));
+    filter: drop-shadow(0 0 33px hsla(185, 100%, 50%, 0.44))
+            drop-shadow(0 0 66px hsla(43, 80%, 60%, 0.22));
   }
 
   .mic-pulse {
