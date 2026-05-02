@@ -46,7 +46,7 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
           className="flex items-center justify-between gap-1 px-1.5 py-[3px] flex-1 min-w-0"
           style={{ background: seg.bg, color: seg.color, flexGrow: seg.value.length > 5 ? 1.6 : 1 }}
         >
-          <span className="text-[9px] font-orbitron" style={{ fontWeight: 900 }}>{seg.label}</span>
+          <span className="text-[10px] font-orbitron" style={{ fontWeight: 900 }}>{seg.label}</span>
           <span
             className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
             style={{ fontWeight: 900 }}
@@ -101,7 +101,7 @@ const NationFeed = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-semibold text-foreground">{item.title}</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5 truncate font-bold">
+                  <p className="text-[11px] mt-0.5 truncate font-bold" style={{ color: "hsla(0,0%,100%,0.8)" }}>
                     {item.description}
                   </p>
                 </div>
@@ -126,7 +126,8 @@ const NationFeed = () => {
                     className="overflow-hidden"
                   >
                     <div
-                      className="px-3 pb-3 pt-2 text-[11px] text-muted-foreground font-exo leading-relaxed"
+                      className="px-3 pb-3 pt-2 text-[11px] font-exo leading-relaxed"
+                      style={{ color: "hsla(0,0%,100%,0.8)" } as any}
                       style={{
                         borderTop: `1px solid ${isCyan ? "hsla(185,100%,50%,0.1)" : "hsla(43,80%,60%,0.1)"}`,
                       }}
