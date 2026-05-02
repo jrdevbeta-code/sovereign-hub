@@ -46,7 +46,7 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
           className="flex items-center justify-between gap-1 px-1.5 py-[3px] flex-1 min-w-0"
           style={{ background: seg.bg, color: seg.color, flexGrow: seg.value.length > 5 ? 1.6 : 1 }}
         >
-          <span className="text-[8px] font-orbitron font-bold">{seg.label}</span>
+          <span className="text-[8px] font-orbitron" style={{ fontWeight: 900 }}>{seg.label}</span>
           <span
             className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
             style={{ fontWeight: 900 }}
