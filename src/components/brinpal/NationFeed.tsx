@@ -106,7 +106,7 @@ const NationFeed = () => {
                   </p>
                 </div>
                 <div className="flex flex-col items-end shrink-0 gap-1">
-                  <span className="text-[9px] text-muted-foreground font-exo font-bold">{item.time}</span>
+                  <span className="text-[9px] text-white font-exo font-bold">{item.time}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
