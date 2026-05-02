@@ -100,8 +100,8 @@ const MentorSection = () => {
           <motion.img
             src={mentorImg}
             alt="Keiko - Tu asistente"
-            width={182}
-            height={182}
+            width={173}
+            height={173}
             className="mentor-glow float-animation"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
