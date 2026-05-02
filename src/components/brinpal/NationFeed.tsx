@@ -156,7 +156,7 @@ const NationFeed = () => {
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
-                        fontSize: '9px',
+                        fontSize: '10px',
                         fontWeight: 600,
                         padding: '2px 8px',
                         borderRadius: '100px',
