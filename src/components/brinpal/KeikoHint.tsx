@@ -37,6 +37,7 @@ const KeikoHint = () => {
   const [estado, setEstado] = useState<Estado>("hidden");
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [dismissedCards, setDismissedCards] = useState<string[]>([]);
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
@@ -54,6 +55,76 @@ const KeikoHint = () => {
 
   const isActive = estado === "peeking" || estado === "open";
   const miniX = isActive ? 0 : -60;
+
+  const insightCards = [
+    {
+      id: "radar",
+      Icon: TrendingUp,
+      iconClassName: "text-gold",
+      label: "Radar",
+      background: "hsla(43,80%,60%,0.06)",
+      border: "1px solid hsla(43,80%,60%,0.1)",
+      pillBg: "hsla(43,80%,60%,0.15)",
+      pillColor: "hsl(43,80%,60%)",
+      title: "El arroz subió 12% en El Marqués",
+      description: "Mejor comprarlo hoy — tendencia alcista esta semana",
+      terna: { bs: "321.524,89", bcv: "662,93", bp: "502,45" },
+    },
+    {
+      id: "nexus",
+      Icon: Users,
+      iconClassName: "text-cyan",
+      label: "Nexus",
+      background: "hsla(185,100%,50%,0.06)",
+      border: "1px solid hsla(185,100%,50%,0.1)",
+      pillBg: "hsla(185,100%,50%,0.15)",
+      pillColor: "hsl(185,100%,50%)",
+      title: "Ana acaba de unirse a Vecinos del Marqués",
+      description: "Referida por Carlos · Tu círculo ahora tiene 12 activos",
+    },
+    {
+      id: "taller",
+      Icon: Sparkles,
+      iconClassName: "text-gold",
+      label: "Taller",
+      background: "hsla(43,80%,60%,0.06)",
+      border: "1px solid hsla(43,80%,60%,0.1)",
+      pillBg: "hsla(43,80%,60%,0.15)",
+      pillColor: "hsl(43,80%,60%)",
+      title: "Tu propuesta tiene 4 días sin respuesta",
+      description: "El comité revisa ideas cada 1ro de mes · Faltan 6 días",
+    },
+    {
+      id: "netflix",
+      Icon: Film,
+      iconColor: "hsl(0,75%,60%)",
+      label: "Ocio · Netflix",
+      background: "hsla(0,75%,55%,0.06)",
+      border: "1px solid hsla(0,75%,55%,0.12)",
+      pillBg: "hsla(0,75%,55%,0.15)",
+      pillColor: "hsl(0,75%,65%)",
+      title: "\"El Eternauta\" — estreno trending #1",
+      description: "Sci-fi argentina · 6 episodios · 94% match para tu gusto",
+    },
+    {
+      id: "music",
+      Icon: Music,
+      iconColor: "hsl(280,70%,70%)",
+      label: "Ocio · Música",
+      background: "hsla(280,60%,55%,0.06)",
+      border: "1px solid hsla(280,60%,55%,0.12)",
+      pillBg: "hsla(280,60%,55%,0.15)",
+      pillColor: "hsl(280,70%,75%)",
+      title: "Alejandro Sanz lanza \"Ascendente\"",
+      description: "12 tracks · Reseña: 4.6/5 · Flamenco-pop íntimo y maduro",
+    },
+  ];
+
+  const visibleInsightCards = insightCards.filter((card) => !dismissedCards.includes(card.id));
+
+  const dismissCard = (id: string) => {
+    setDismissedCards((prev) => (prev.includes(id) ? prev : [...prev, id]));
+  };
 
   const handleMiniTap = () => {
     if (estado === "peeking") setEstado("open");
