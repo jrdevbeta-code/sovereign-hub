@@ -2,7 +2,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Radio, Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
 import { useState } from "react";
 
-const feedItems = [
+interface FeedItem {
+  icon: typeof Users;
+  accent: string;
+  title: string;
+  description: string;
+  time: string;
+  details: string;
+  priceData: { bs: string; bcv: string; bp: string } | null;
+  badge: {
+    module: string;
+    moduleColor: string;
+    moduleBorder: string;
+    sub: string;
+  };
+}
+
+const feedItems: FeedItem[] = [
   {
     icon: Users,
     accent: "cyan",
@@ -11,6 +27,12 @@ const feedItems = [
     time: "Hace 5 min",
     details: "Ana fue referida por Carlos. Ahora tu círculo tiene 12 miembros activos.",
     priceData: null,
+    badge: {
+      module: "Nexus",
+      moduleColor: "hsl(185,100%,52%)",
+      moduleBorder: "hsla(185,100%,52%,0.38)",
+      sub: "Nuevo miembro",
+    },
   },
   {
     icon: TrendingUp,
@@ -20,6 +42,12 @@ const feedItems = [
     time: "Hace 20 min",
     details: "Tendencia alcista en toda Caracas.",
     priceData: { bs: "321.524,89", bcv: "662,93", bp: "502,45" },
+    badge: {
+      module: "Radar",
+      moduleColor: "hsl(43,80%,62%)",
+      moduleBorder: "hsla(43,80%,62%,0.38)",
+      sub: "Alerta de precio",
+    },
   },
   {
     icon: Radio,
@@ -29,6 +57,12 @@ const feedItems = [
     time: "Hace 1h",
     details: "Dos reportes de precios actualizados en bodegones y un reporte de gas.",
     priceData: { bs: "321.524,89", bcv: "662,93", bp: "502,45" },
+    badge: {
+      module: "Radar",
+      moduleColor: "hsl(43,80%,62%)",
+      moduleBorder: "hsla(43,80%,62%,0.38)",
+      sub: "Comunitario",
+    },
   },
 ];
 
