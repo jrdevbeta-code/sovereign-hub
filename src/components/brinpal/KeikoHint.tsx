@@ -9,7 +9,7 @@ type Estado = "hidden" | "peeking" | "open" | "dismissed";
 
 type InsightCard = {
   id: string;
-  Icon: typeof TrendingUp;
+  Icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   iconClassName?: string;
   iconColor?: string;
   label: string;
