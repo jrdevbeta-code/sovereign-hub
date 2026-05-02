@@ -4,7 +4,7 @@ import RadarIcon from "./RadarIcon";
 import { useState } from "react";
 
 interface FeedItem {
-  icon: typeof Users;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   accent: string;
   title: string;
   description: string;
