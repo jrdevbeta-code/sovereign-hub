@@ -60,7 +60,7 @@ const MentorSection = () => {
 
   const handleProcess = () => {
     setIsProcessing(true);
-    setTimeout(() => setIsProcessing(false), 4200);
+    setTimeout(() => setIsProcessing(false), 7500);
   };
 
   useEffect(() => {
