@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const members = [
