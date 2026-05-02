@@ -18,8 +18,8 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
         className="flex-1 py-1 flex flex-col items-center rounded-md"
         style={{ background: s.bg, color: s.color }}
       >
-        <span className="text-[9px] font-orbitron font-bold">{s.value}</span>
-        <span className="text-[7px] font-orbitron font-bold opacity-70">{s.label}</span>
+        <span className="text-[10px] font-orbitron font-bold">{s.value}</span>
+        <span className="text-[10px] font-orbitron font-bold opacity-70">{s.label}</span>
       </div>
     ))}
   </div>
@@ -175,7 +175,7 @@ const KeikoHint = () => {
             >
               {/* Header del panel */}
               <div className="flex items-center justify-between mb-2.5">
-                <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase">
+                <p className="text-[11px] font-orbitron tracking-widest text-muted-foreground uppercase">
                   Keiko · Para ti ahora
                 </p>
                 <button
@@ -192,7 +192,7 @@ const KeikoHint = () => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  gap: "8px",
+                  gap: "10px",
                   overflowX: "auto",
                   overflowY: "hidden",
                   padding: "8px",
