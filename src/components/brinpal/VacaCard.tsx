@@ -26,17 +26,17 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
   ];
 
   return (
-    <div className="flex flex-col gap-[1px] rounded-md overflow-visible">
+    <div className="flex flex-col gap-[1px] rounded-md overflow-visible min-w-0">
       {segments.map((seg) => {
         const isActive = seg.key === activeCurrency;
         return (
           <div
             key={seg.key}
-            className="flex items-center justify-between px-1.5 py-[2px]"
+            className="flex items-center justify-between gap-1.5 px-1.5 py-[2px]"
             style={{
               background: seg.bg,
               color: seg.color,
-              transform: isActive ? "scale(1.12) translateX(2px)" : "scale(1)",
+              transform: isActive ? "scale(1.10) translateX(2px)" : "scale(1)",
               boxShadow: isActive
                 ? "0 3px 12px hsla(145,60%,40%,0.6), 0 0 0 1.5px hsla(145,60%,40%,0.4)"
                 : "none",
@@ -46,8 +46,8 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
               transition: "all 0.25s ease",
             }}
           >
-            <span className="text-[6px] font-orbitron font-bold">{seg.label}</span>
-            <span className="text-[7px] font-orbitron font-bold ml-1">{seg.value}</span>
+            <span className="text-[7px] font-orbitron font-bold">{seg.label}</span>
+            <span className="text-[8px] font-orbitron font-bold ml-auto whitespace-nowrap">{seg.value}</span>
           </div>
         );
       })}
