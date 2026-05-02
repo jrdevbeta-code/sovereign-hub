@@ -170,10 +170,10 @@ const KeikoHint = () => {
               originY: 1,
               width: "calc(100vw - 40px)",
               top: "10vh",
-              maxHeight: "calc(90vh - 140px)",
+              maxHeight: "calc(90vh - 60px)",
               left: "20px",
               right: "20px",
-              bottom: "158px",
+              bottom: "60px",
               maxWidth: "calc(28rem - 40px)",
               zIndex: 50,
             }}
