@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { TrendingUp, Users, Sparkles, Mic, Keyboard, X } from "lucide-react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
@@ -36,14 +37,16 @@ const KeikoHint = () => {
   }, [estado]);
 
   const isActive = estado === "peeking" || estado === "open";
-  const miniX = isActive ? 28 : -60;
+  const miniX = isActive ? 0 : -60;
 
   const handleMiniTap = () => {
     if (estado === "peeking") setEstado("open");
     else if (estado === "open") setEstado("dismissed");
   };
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <>
       {/* Overlay para cerrar */}
       <AnimatePresence>
@@ -52,63 +55,77 @@ const KeikoHint = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40"
             onClick={() => setEstado("dismissed")}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 49,
+              background: "transparent",
+            }}
           />
         )}
       </AnimatePresence>
 
       {/* Mini Keiko */}
-      <div className="fixed z-50 pointer-events-none" style={{ bottom: 160, left: -38 }}>
-        <motion.div
-          className="relative pointer-events-auto"
-          initial={{ x: -60 }}
-          animate={{ x: miniX }}
-          transition={{ duration: estado === "dismissed" ? 0.4 : 0.6, ease: "easeOut" }}
+      <motion.div
+        initial={{ x: -60 }}
+        animate={{ x: miniX }}
+        transition={{ type: "spring", stiffness: 300, damping: 24 }}
+        style={{
+          position: "fixed",
+          left: "-16px",
+          bottom: "220px",
+          width: "52px",
+          height: "60px",
+          zIndex: 50,
+        }}
+      >
+        <div
+          className="relative cursor-pointer"
+          style={{ position: "relative", outline: "3px solid red" }}
+          onClick={handleMiniTap}
         >
-          <div className="relative cursor-pointer" style={{ position: "relative" }} onClick={handleMiniTap}>
-            {/* Wave en peeking */}
-            {estado === "peeking" && (
-              <motion.div
-                className="absolute inset-0"
-                style={{ transformOrigin: "30% 80%" }}
-                animate={{ rotate: [-15, 0, -15, 0] }}
-                transition={{ duration: 0.8, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.8 }}
-              >
-                <img
-                  src={mentorImg}
-                  alt="Keiko - Asomada"
-                  width={52}
-                  height={52}
-                  className="mentor-glow select-none"
-                  draggable={false}
-                />
-              </motion.div>
-            )}
-            {estado !== "peeking" && (
+          {/* Wave en peeking */}
+          {estado === "peeking" && (
+            <motion.div
+              className="absolute inset-0"
+              style={{ transformOrigin: "30% 80%" }}
+              animate={{ rotate: [-15, 0, -15, 0] }}
+              transition={{ duration: 0.8, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.8 }}
+            >
               <img
                 src={mentorImg}
-                alt="Keiko - Mini"
+                alt="Keiko - Asomada"
                 width={52}
                 height={52}
                 className="mentor-glow select-none"
                 draggable={false}
               />
-            )}
+            </motion.div>
+          )}
+          {estado !== "peeking" && (
+            <img
+              src={mentorImg}
+              alt="Keiko - Mini"
+              width={52}
+              height={52}
+              className="mentor-glow select-none"
+              draggable={false}
+            />
+          )}
 
-            {/* Badge pulsante cyan en peeking */}
-            {estado === "peeking" && (
-              <span className="absolute flex h-2.5 w-2.5" style={{ top: -4, right: -4 }}>
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-60" />
-                <span
-                  className="relative inline-flex rounded-full h-2.5 w-2.5"
-                  style={{ background: "hsl(185,100%,50%)" }}
-                />
-              </span>
-            )}
-          </div>
-        </motion.div>
-      </div>
+          {/* Badge pulsante cyan en peeking */}
+          {estado === "peeking" && (
+            <span className="absolute flex h-2.5 w-2.5" style={{ top: -4, right: -4 }}>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-60" />
+              <span
+                className="relative inline-flex rounded-full h-2.5 w-2.5"
+                style={{ background: "hsl(185,100%,50%)" }}
+              />
+            </span>
+          )}
+        </div>
+      </motion.div>
 
       {/* Panel de insights */}
       <AnimatePresence>
@@ -119,15 +136,17 @@ const KeikoHint = () => {
             exit={{ opacity: 0, scaleX: 0, scaleY: 0 }}
             transition={{ duration: 0.35, ease: [0.34, 1.56, 0.64, 1] }}
             style={{
+              position: "fixed",
               originX: 0,
               originY: 1,
               width: "calc(100vw - 72px)",
               maxHeight: "55vh",
-              left: 50,
-              bottom: 140,
+              left: "44px",
+              bottom: "214px",
               maxWidth: 360,
+              zIndex: 50,
             }}
-            className="fixed z-50 glass-card-deep rounded-2xl"
+            className="glass-card-deep rounded-2xl"
           >
             <div
               className="p-3"
@@ -272,7 +291,8 @@ const KeikoHint = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </>,
+    document.body
   );
 };
 
