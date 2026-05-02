@@ -273,7 +273,7 @@ const KeikoHint = () => {
                   style={{
                     background: "hsla(43,80%,60%,0.06)",
                     border: "1px solid hsla(43,80%,60%,0.1)",
-                    padding: "10px 12px",
+                    padding: "10px 10px",
                     width: "100%",
                     scrollSnapAlign: "start",
                   }}
