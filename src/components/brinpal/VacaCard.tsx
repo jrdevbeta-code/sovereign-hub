@@ -7,6 +7,9 @@ const members = [
   { name: "María", letter: "M", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: true },
   { name: "Carlos", letter: "C", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: false },
 ];
+
+const totalBs = 321524.89;
+const paidBs = 107174.96;
 const progressPercent = Math.round((paidBs / totalBs) * 100);
 
 const avatarGradients = [
