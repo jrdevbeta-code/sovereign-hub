@@ -345,11 +345,12 @@ const KeikoHint = () => {
                         <div className="flex items-center gap-2 mb-1">
                           <Icon className={`w-3.5 h-3.5 ${card.iconClassName ?? ""}`} style={{ color: card.iconColor }} />
                           <span
-                            className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
+                            className="text-[11px] font-orbitron px-2 py-0.5 rounded-full"
                             style={{
                               background: card.pillBg,
                               color: card.pillColor,
                               border: card.border,
+                              letterSpacing: "0.05em",
                             }}
                           >
                             {card.label}
