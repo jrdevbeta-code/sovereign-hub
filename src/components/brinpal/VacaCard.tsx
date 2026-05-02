@@ -86,8 +86,8 @@ const VacaCard = () => {
       {/* Total amount */}
       <div className="flex items-center justify-between mb-2">
         <p className="text-sm font-semibold text-foreground">Reunión pendiente</p>
-        <p className="text-sm font-orbitron font-bold text-gold gold-glow">
-          240,00 <span className="text-[9px] font-bold">Bs</span>
+        <p className="text-sm font-orbitron font-bold text-gold gold-glow whitespace-nowrap">
+          321.524,89 <span className="text-[9px] font-bold">Bs</span>
         </p>
       </div>
 
