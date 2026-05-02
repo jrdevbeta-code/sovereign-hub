@@ -6,24 +6,32 @@ import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
 
-const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => (
-  <div className="flex gap-1 mt-2">
-    {[
-      { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
-      { label: "BCV", value: bcv, bg: "hsl(216,80%,50%)", color: "hsl(0,0%,100%)" },
-      { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)" },
-    ].map((s) => (
-      <div
-        key={s.label}
-        className="flex-1 py-1 flex flex-col items-center rounded-md"
-        style={{ background: s.bg, color: s.color }}
-      >
-        <span className="text-[10px] font-orbitron font-bold">{s.value}</span>
-        <span className="text-[10px] font-orbitron font-bold opacity-70">{s.label}</span>
-      </div>
-    ))}
-  </div>
-);
+const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => {
+  const segments = [
+    { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
+    { label: "BCV", value: bcv, bg: "hsl(216,80%,50%)", color: "hsl(0,0%,100%)" },
+    { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)" },
+  ];
+  return (
+    <div className="flex gap-[2px] rounded-md overflow-hidden mt-2">
+      {segments.map((seg) => (
+        <div
+          key={seg.label}
+          className="flex items-center justify-between gap-1 px-1.5 py-[3px] flex-1 min-w-0"
+          style={{ background: seg.bg, color: seg.color, flexGrow: seg.value.length > 5 ? 1.6 : 1 }}
+        >
+          <span className="text-[9px] font-orbitron" style={{ fontWeight: 900 }}>{seg.label}</span>
+          <span
+            className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
+            style={{ fontWeight: 900 }}
+          >
+            {seg.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const KeikoHint = () => {
   const [estado, setEstado] = useState<Estado>("hidden");
