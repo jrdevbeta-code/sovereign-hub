@@ -46,7 +46,7 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
               transition: "all 0.25s ease",
             }}
           >
-            <span className="text-[9px] font-orbitron" style={{ fontWeight: 900 }}>{seg.label}</span>
+            <span className="text-[10px] font-orbitron" style={{ fontWeight: 900 }}>{seg.label}</span>
             <span
               className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
               style={{ fontWeight: 900 }}
@@ -92,7 +92,7 @@ const VacaCard = () => {
       <div className="flex items-center justify-between mb-2">
         <p className="text-sm font-semibold text-foreground">Reunión pendiente</p>
         <p className="text-base font-orbitron font-bold text-gold gold-glow whitespace-nowrap">
-          321.524,89 <span className="text-[10px] font-bold">Bs</span>
+          321.524,89 <span className="text-[11px] font-bold">Bs</span>
         </p>
       </div>
 
@@ -110,7 +110,7 @@ const VacaCard = () => {
           }}
         />
       </div>
-      <p className="text-[9px] text-muted-foreground font-exo mb-3">
+      <p className="text-[9px] font-exo mb-3" style={{ color: "hsla(0,0%,100%,0.8)" }}>
         {progressPercent}% completado · Juan y Carlos faltan por pagar
       </p>
 
