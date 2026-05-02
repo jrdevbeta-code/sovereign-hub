@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Mic, Keyboard, Send } from "lucide-react";
+import { Mic, Keyboard, Send, Zap } from "lucide-react";
 import { useState } from "react";
 
 const MicButton = () => {
@@ -7,7 +7,7 @@ const MicButton = () => {
   const [text, setText] = useState("");
 
   return (
-    <div className="flex justify-center items-center gap-3 py-1 px-5">
+    <div className="flex justify-center items-center gap-3 pb-1 pt-0 px-5">
       <AnimatePresence mode="wait">
         {showInput ? (
           <motion.div
@@ -87,12 +87,17 @@ const MicButton = () => {
             </motion.button>
 
             <motion.button
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
               onClick={() => window.dispatchEvent(new CustomEvent("brinpal:procesar"))}
-              className="ml-1 px-3 py-1.5 text-[10px] font-orbitron tracking-widest uppercase rounded-full text-cyan border border-cyan/30 hover:bg-cyan/10 transition"
+              className="w-9 h-9 rounded-full flex items-center justify-center"
+              style={{
+                background: "linear-gradient(135deg, hsla(216,30%,14%,0.8), hsla(216,30%,8%,0.6))",
+                border: "1px solid hsla(185,100%,50%,0.25)",
+              }}
+              aria-label="Procesar"
             >
-              Procesar
+              <Zap className="w-4 h-4 text-cyan" />
             </motion.button>
           </motion.div>
         )}

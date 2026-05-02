@@ -63,7 +63,7 @@ const TernaPiano = () => {
                 background:
                   i >= 7
                     ? "hsl(var(--cyan))"
-                    : "hsla(185,100%,50%,0.25)",
+                    : "hsla(185,100%,50%,0.40)",
               }}
             />
           ))}
