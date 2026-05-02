@@ -18,8 +18,8 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
         className="flex-1 py-1 flex flex-col items-center rounded-md"
         style={{ background: s.bg, color: s.color }}
       >
-        <span className="text-[8px] font-orbitron font-bold">{s.value}</span>
-        <span className="text-[6px] font-orbitron font-bold opacity-70">{s.label}</span>
+        <span className="text-[9px] font-orbitron font-bold">{s.value}</span>
+        <span className="text-[7px] font-orbitron font-bold opacity-70">{s.label}</span>
       </div>
     ))}
   </div>
