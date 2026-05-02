@@ -110,9 +110,9 @@ const VacaCard = () => {
       </p>
 
       {/* Members with micro-piano */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-2">
         {members.map((m, i) => (
-          <div key={i} className="flex items-center gap-1.5">
+          <div key={i} className="flex items-center gap-2">
             <div
               className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
               style={{
@@ -125,7 +125,10 @@ const VacaCard = () => {
             >
               {m.letter}
             </div>
-            <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
+            <span className="text-[11px] text-foreground font-exo w-14 shrink-0">{m.name}</span>
+            <div className="flex-1 min-w-0">
+              <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
+            </div>
           </div>
         ))}
         <Users className="w-4 h-4 text-muted-foreground ml-auto" />
