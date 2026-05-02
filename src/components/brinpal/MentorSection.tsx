@@ -36,7 +36,7 @@ const PARTICLES = Array.from({ length: 90 }, (_, i) => {
   const x = CENTER + Math.cos(angle) * radius;
   const y = CENTER + Math.sin(angle) * radius;
 
-  const size = 1.5 + (i % 5) * 0.6; // 1.5–4px (smaller, brighter)
+  const size = 1.1 + (i % 5) * 0.45; // ~1.1–3px (25% smaller, more numerous)
   // 80% gold variants, 20% green accent
   const goldShades = ["#FFD24A", "#FFC107", "#FFE27A", "#F5B400", "#FFCE3D"];
   const color = i % 5 === 0 ? "#5BE07A" : goldShades[i % goldShades.length];
