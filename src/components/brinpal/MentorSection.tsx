@@ -25,7 +25,7 @@ const LANDING_TARGETS = [
 ];
 
 const STAR_RADII = [155, 115, 170, 130, 150, 140, 165];
-const PARTICLES = Array.from({ length: 60 }, (_, i) => {
+const PARTICLES = Array.from({ length: 90 }, (_, i) => {
   const geometries = [7, 8, 12];
   const g = geometries[i % 3];
   const pointIndex = Math.floor(i / 3);
