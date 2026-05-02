@@ -46,8 +46,13 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
               transition: "all 0.25s ease",
             }}
           >
-            <span className="text-[7px] font-orbitron font-bold">{seg.label}</span>
-            <span className="text-[9px] font-orbitron font-bold ml-auto whitespace-nowrap">{seg.value}</span>
+            <span className="text-[8px] font-orbitron font-bold">{seg.label}</span>
+            <span
+              className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
+              style={{ fontWeight: seg.key === "bcv" ? 900 : 700 }}
+            >
+              {seg.value}
+            </span>
           </div>
         );
       })}
