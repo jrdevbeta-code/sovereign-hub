@@ -75,10 +75,31 @@ const VacaCard = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <span className="text-base">🐄</span>
-          <p className="text-[10px] font-orbitron tracking-widest text-gold uppercase">
-            Vaca Activa
-          </p>
+          <div
+            className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+            style={{
+              background: 'hsla(145,60%,45%,0.1)',
+              border: '1px solid hsla(145,60%,45%,0.2)',
+            }}
+          >
+            <span style={{ fontSize:'14px', lineHeight:1 }}>🐄</span>
+          </div>
+          <span style={{
+            display:'inline-flex', alignItems:'center',
+            fontSize:'10px', fontWeight:700, padding:'3px 10px',
+            borderRadius:'100px', letterSpacing:'0.05em',
+            background:'rgba(255,255,255,0.06)',
+            color:'hsl(145,60%,52%)',
+            border:'1px solid hsla(145,60%,52%,0.38)',
+          }}>Vaca</span>
+          <span style={{
+            display:'inline-flex', alignItems:'center',
+            fontSize:'10px', fontWeight:700, padding:'3px 10px',
+            borderRadius:'100px', letterSpacing:'0.05em',
+            background:'rgba(255,255,255,0.06)',
+            color:'rgba(255,255,255,0.75)',
+            border:'1px solid rgba(255,255,255,0.2)',
+          }}>Activa</span>
         </div>
         <motion.div
           animate={{ rotate: expanded ? 180 : 0 }}
