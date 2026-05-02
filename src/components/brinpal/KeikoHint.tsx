@@ -244,7 +244,7 @@ const KeikoHint = () => {
                   <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
                     Mejor comprarlo hoy — tendencia alcista esta semana
                   </p>
-                  <InlineTerna bs="3,20" bcv="0,09" bp="0,09" />
+                  <InlineTerna bs="321.524,89" bcv="662,93" bp="502,45" />
                 </div>
 
                 {/* Tarjeta 2 — Nexus */}
