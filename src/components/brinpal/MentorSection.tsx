@@ -33,7 +33,7 @@ const MentorSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col items-center px-5 py-2"
+      className="flex flex-col items-center px-5 py-0"
     >
       <div className="relative w-[200px] h-[200px]">
         {/* Teal illumination - fades in after Keiko lands */}
@@ -100,8 +100,8 @@ const MentorSection = () => {
           <motion.img
             src={mentorImg}
             alt="Keiko - Tu asistente"
-            width={200}
-            height={200}
+            width={182}
+            height={182}
             className="mentor-glow float-animation"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
@@ -113,7 +113,7 @@ const MentorSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.4, ease: "easeOut" }}
-        className="mt-1 text-sm text-muted-foreground font-exo text-center"
+        className="mt-0 text-sm text-muted-foreground font-exo text-center"
       >
         Hola, soy <span className="text-cyan cyan-glow font-semibold">Keiko</span>. ¿En qué te ayudo hoy?
       </motion.p>
