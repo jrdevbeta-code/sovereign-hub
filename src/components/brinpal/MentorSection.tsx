@@ -25,7 +25,7 @@ const LANDING_TARGETS = [
 ];
 
 const STAR_RADII = [155, 115, 170, 130, 150, 140, 165];
-const PARTICLES = Array.from({ length: 60 }, (_, i) => {
+const PARTICLES = Array.from({ length: 90 }, (_, i) => {
   const geometries = [7, 8, 12];
   const g = geometries[i % 3];
   const pointIndex = Math.floor(i / 3);
@@ -36,7 +36,7 @@ const PARTICLES = Array.from({ length: 60 }, (_, i) => {
   const x = CENTER + Math.cos(angle) * radius;
   const y = CENTER + Math.sin(angle) * radius;
 
-  const size = 1.5 + (i % 5) * 0.6; // 1.5–4px (smaller, brighter)
+  const size = 1.1 + (i % 5) * 0.45; // ~1.1–3px (25% smaller, more numerous)
   // 80% gold variants, 20% green accent
   const goldShades = ["#FFD24A", "#FFC107", "#FFE27A", "#F5B400", "#FFCE3D"];
   const color = i % 5 === 0 ? "#5BE07A" : goldShades[i % goldShades.length];
@@ -105,23 +105,6 @@ const MentorSection = () => {
                 hidden: {},
               }}
             >
-              {/* Faint gold aura ring that expands outward as particles converge */}
-              <motion.div
-                className="absolute left-1/2 top-1/2 rounded-full pointer-events-none"
-                style={{
-                  width: 200,
-                  height: 200,
-                  marginLeft: -100,
-                  marginTop: -100,
-                  background:
-                    "radial-gradient(circle, transparent 55%, hsla(43,90%,60%,0.22) 65%, transparent 75%)",
-                  filter: "blur(4px)",
-                }}
-                initial={{ scale: 0.4, opacity: 0 }}
-                animate={{ scale: [0.4, 1.1, 0.6], opacity: [0, 0.9, 0] }}
-                transition={{ duration: 1.6, ease: "easeOut" }}
-              />
-
               {PARTICLES.map((p) => (
                 <motion.span
                   key={p.key}
@@ -170,63 +153,35 @@ const MentorSection = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           />
 
-          {/* Gold collar shimmer — 3s sustained glow after particles land */}
+          {/* Heart/collar inner glow — pulses inside Keiko's chest for 3s */}
           <AnimatePresence>
             {isProcessing && (
               <motion.div
-                key="collar-glow"
-                className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+                key="heart-glow"
+                className="absolute pointer-events-none"
                 style={{
-                  bottom: "18%",
-                  width: 100,
-                  height: 22,
+                  top: "58%",
+                  left: "50%",
+                  marginLeft: -18,
+                  width: 36,
+                  height: 36,
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(ellipse, hsla(43,100%,70%,1) 0%, hsla(43,90%,60%,0.7) 35%, hsla(43,80%,50%,0.3) 60%, transparent 80%)",
-                  filter: "blur(2px)",
+                    "radial-gradient(circle, hsla(45,100%,92%,1) 0%, hsla(43,100%,70%,0.95) 28%, hsla(40,95%,55%,0.55) 55%, transparent 78%)",
+                  filter: "blur(3px)",
                   mixBlendMode: "screen",
                 }}
-                initial={{ opacity: 0, scale: 0.6 }}
+                initial={{ opacity: 0, scale: 0.7 }}
                 animate={{
-                  opacity: [0, 1, 1, 1, 1, 0],
-                  scale: [0.6, 1.2, 1.05, 1.15, 1.05, 0.9],
+                  opacity: [0, 1, 0.75, 1, 0.7, 0],
+                  scale: [0.7, 1.15, 0.95, 1.18, 1, 0.85],
                 }}
                 exit={{ opacity: 0 }}
                 transition={{
                   duration: 3,
                   delay: 1.0,
                   ease: "easeInOut",
-                  times: [0, 0.12, 0.35, 0.6, 0.85, 1],
-                }}
-              />
-            )}
-          </AnimatePresence>
-
-          {/* Headband (diadema) violet tint — 3s vivid violet replacing cyan */}
-          <AnimatePresence>
-            {isProcessing && (
-              <motion.div
-                key="diadem-violet"
-                className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-                style={{
-                  top: "12%",
-                  width: 95,
-                  height: 30,
-                  borderRadius: "50%",
-                  background:
-                    "radial-gradient(ellipse, hsla(280,100%,70%,1) 0%, hsla(275,100%,60%,0.85) 30%, hsla(265,95%,50%,0.5) 55%, transparent 80%)",
-                  filter: "blur(2px) saturate(1.4)",
-                  mixBlendMode: "screen",
-                  boxShadow: "0 0 25px hsla(280,100%,65%,0.7), 0 0 45px hsla(280,100%,55%,0.4)",
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 1, 1, 1, 0] }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  duration: 3,
-                  delay: 0.8,
-                  ease: "easeInOut",
-                  times: [0, 0.1, 0.5, 0.85, 1],
+                  times: [0, 0.18, 0.4, 0.62, 0.85, 1],
                 }}
               />
             )}
