@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
 import RadarIcon from "./RadarIcon";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface FeedItem {
   icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
