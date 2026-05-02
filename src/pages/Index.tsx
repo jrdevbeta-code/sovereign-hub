@@ -15,7 +15,7 @@ const Index = () => {
       <Header />
       <MentorSection />
       <MicButton />
-      <div className="px-5 pb-2 pt-1 space-y-2">
+      <div className="px-5 pb-2 pt-1 space-y-2" style={{ marginTop: "-14px" }}>
         <TernaPiano />
         <VacaCard />
       </div>
