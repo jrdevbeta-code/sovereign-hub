@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, TrendingUp, Sparkles, Wallet } from "lucide-react";
+import { BookOpen, TrendingUp, Sparkles, Wallet, Mic, Keyboard } from "lucide-react";
 
 const Header = () => {
   return (
@@ -32,6 +32,32 @@ const Header = () => {
             Academy
           </span>
         </motion.button>
+
+        {/* Mini Mic + Keyboard */}
+        <div className="flex items-center gap-1.5">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-7 h-7 rounded-full flex items-center justify-center"
+            style={{
+              background: "hsla(185,100%,50%,0.08)",
+              border: "1px solid hsla(185,100%,50%,0.2)",
+            }}
+          >
+            <Mic className="w-3.5 h-3.5 text-cyan" />
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-7 h-7 rounded-full flex items-center justify-center"
+            style={{
+              background: "hsla(43,80%,60%,0.08)",
+              border: "1px solid hsla(43,80%,60%,0.18)",
+            }}
+          >
+            <Keyboard className="w-3.5 h-3.5 text-gold" />
+          </motion.button>
+        </div>
       </div>
 
       {/* Right: Trust Score + Virtual ID */}
