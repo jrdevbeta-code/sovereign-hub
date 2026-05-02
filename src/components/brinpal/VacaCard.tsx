@@ -3,13 +3,10 @@ import { Users, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const members = [
-  { name: "Juan", letter: "J", bs: "80,00", bcv: "2,19", bp: "2,19", paid: false },
-  { name: "María", letter: "M", bs: "80,00", bcv: "2,19", bp: "2,19", paid: true },
-  { name: "Carlos", letter: "C", bs: "80,00", bcv: "2,19", bp: "2,19", paid: false },
+  { name: "Juan", letter: "J", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: false },
+  { name: "María", letter: "M", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: true },
+  { name: "Carlos", letter: "C", bs: "107.174,96", bcv: "220,98", bp: "167,48", paid: false },
 ];
-
-const totalBs = 240;
-const paidBs = 80;
 const progressPercent = Math.round((paidBs / totalBs) * 100);
 
 const avatarGradients = [
