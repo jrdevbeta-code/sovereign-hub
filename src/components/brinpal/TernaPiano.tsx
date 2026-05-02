@@ -37,10 +37,34 @@ const TernaPiano = () => {
       className="glass-card-deep p-4 pb-0 flex flex-col"
     >
       <div className="flex items-center gap-2 mb-2">
-        <Satellite className="w-4 h-4 text-cyan" />
-        <p className="text-[10px] font-orbitron tracking-widest text-cyan uppercase">
-          Radar de Precios
-        </p>
+        <div
+          className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+          style={{
+            background: 'hsla(43,80%,60%,0.1)',
+            border: '1px solid hsla(43,80%,60%,0.2)',
+          }}
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24"
+            fill="none" stroke="hsl(43,80%,62%)" strokeWidth="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <span style={{
+          display:'inline-flex', alignItems:'center',
+          fontSize:'10px', fontWeight:700, padding:'3px 10px',
+          borderRadius:'100px', letterSpacing:'0.05em',
+          background:'rgba(255,255,255,0.06)',
+          color:'hsl(43,80%,62%)',
+          border:'1px solid hsla(43,80%,62%,0.38)',
+        }}>Radar</span>
+        <span style={{
+          display:'inline-flex', alignItems:'center',
+          fontSize:'10px', fontWeight:700, padding:'3px 10px',
+          borderRadius:'100px', letterSpacing:'0.05em',
+          background:'rgba(255,255,255,0.06)',
+          color:'rgba(255,255,255,0.75)',
+          border:'1px solid rgba(255,255,255,0.2)',
+        }}>Precios</span>
       </div>
 
       {/* Product info + trend */}
