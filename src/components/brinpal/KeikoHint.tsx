@@ -197,7 +197,7 @@ const KeikoHint = () => {
                   gap: "6px",
                   overflowX: "hidden",
                   overflowY: "auto",
-                  padding: "8px",
+                  padding: "4px 2px",
                   maxHeight: "calc(90vh - 220px)",
                   scrollSnapType: "y mandatory",
                   WebkitOverflowScrolling: "touch",
