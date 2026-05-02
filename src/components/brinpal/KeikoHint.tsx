@@ -350,7 +350,8 @@ const KeikoHint = () => {
                               background: card.pillBg,
                               color: card.pillColor,
                               border: card.border,
-                              letterSpacing: "0.05em",
+                              letterSpacing: "0.15em",
+                              fontWeight: 900,
                             }}
                           >
                             {card.label}
