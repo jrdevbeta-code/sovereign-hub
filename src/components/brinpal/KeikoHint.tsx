@@ -18,8 +18,8 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
         className="flex-1 py-1 flex flex-col items-center rounded-md"
         style={{ background: s.bg, color: s.color }}
       >
-        <span className="text-[9px] font-orbitron font-bold">{s.value}</span>
-        <span className="text-[7px] font-orbitron font-bold opacity-70">{s.label}</span>
+        <span className="text-[10px] font-orbitron font-bold">{s.value}</span>
+        <span className="text-[10px] font-orbitron font-bold opacity-70">{s.label}</span>
       </div>
     ))}
   </div>
@@ -175,7 +175,7 @@ const KeikoHint = () => {
             >
               {/* Header del panel */}
               <div className="flex items-center justify-between mb-2.5">
-                <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase">
+                <p className="text-[11px] font-orbitron tracking-widest text-muted-foreground uppercase">
                   Keiko · Para ti ahora
                 </p>
                 <button
@@ -192,7 +192,7 @@ const KeikoHint = () => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  gap: "8px",
+                  gap: "10px",
                   overflowX: "auto",
                   overflowY: "hidden",
                   padding: "8px",
@@ -216,7 +216,7 @@ const KeikoHint = () => {
                   <div className="flex items-center gap-2 mb-1">
                     <TrendingUp className="w-3.5 h-3.5 text-gold" />
                     <span
-                      className="text-[9px] font-orbitron px-2 py-0.5 rounded-full"
+                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
                       style={{
                         background: "hsla(43,80%,60%,0.15)",
                         color: "hsl(43,80%,60%)",
@@ -225,10 +225,10 @@ const KeikoHint = () => {
                       Radar
                     </span>
                   </div>
-                  <p className="text-[12px] font-orbitron font-bold text-foreground leading-tight">
+                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     El arroz subió 12% en El Marqués
                   </p>
-                  <p className="text-[11px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[12px] font-exo text-muted-foreground mt-0.5">
                     Mejor comprarlo hoy — tendencia alcista esta semana
                   </p>
                   <InlineTerna bs="3,20" bcv="0,09" bp="0,09" />
@@ -248,7 +248,7 @@ const KeikoHint = () => {
                   <div className="flex items-center gap-2 mb-1">
                     <Users className="w-3.5 h-3.5 text-cyan" />
                     <span
-                      className="text-[9px] font-orbitron px-2 py-0.5 rounded-full"
+                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
                       style={{
                         background: "hsla(185,100%,50%,0.15)",
                         color: "hsl(185,100%,50%)",
@@ -257,10 +257,10 @@ const KeikoHint = () => {
                       Nexus
                     </span>
                   </div>
-                  <p className="text-[12px] font-orbitron font-bold text-foreground leading-tight">
+                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Ana acaba de unirse a Vecinos del Marqués
                   </p>
-                  <p className="text-[11px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[12px] font-exo text-muted-foreground mt-0.5">
                     Referida por Carlos · Tu círculo ahora tiene 12 activos
                   </p>
                 </div>
@@ -279,7 +279,7 @@ const KeikoHint = () => {
                   <div className="flex items-center gap-2 mb-1">
                     <Sparkles className="w-3.5 h-3.5 text-gold" />
                     <span
-                      className="text-[9px] font-orbitron px-2 py-0.5 rounded-full"
+                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
                       style={{
                         background: "hsla(43,80%,60%,0.15)",
                         color: "hsl(43,80%,60%)",
@@ -288,10 +288,10 @@ const KeikoHint = () => {
                       Taller
                     </span>
                   </div>
-                  <p className="text-[12px] font-orbitron font-bold text-foreground leading-tight">
+                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Tu propuesta tiene 4 días sin respuesta
                   </p>
-                  <p className="text-[11px] font-exo text-muted-foreground mt-0.5">
+                  <p className="text-[12px] font-exo text-muted-foreground mt-0.5">
                     El comité revisa ideas cada 1ro de mes · Faltan 6 días
                   </p>
                 </div>
@@ -324,7 +324,7 @@ const KeikoHint = () => {
                     <Keyboard className="w-4 h-4 text-gold" />
                   </motion.button>
                 </div>
-                <p className="text-[10px] text-muted-foreground font-exo">
+                <p className="text-[12px] text-muted-foreground font-exo">
                   o pregúntame algo
                 </p>
               </div>
