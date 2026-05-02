@@ -75,7 +75,7 @@ const KeikoHint = () => {
   const insightCards: InsightCard[] = [
     {
       id: "radar",
-      Icon: TrendingUp,
+      Icon: RadarIcon,
       iconClassName: "text-gold",
       label: "Radar",
       background: "hsla(43,80%,60%,0.06)",
