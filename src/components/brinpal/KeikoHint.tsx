@@ -160,12 +160,13 @@ const KeikoHint = () => {
               position: "fixed",
               originX: 0,
               originY: 1,
-              width: "calc(100vw - 60px)",
+              width: "calc(100vw - 40px)",
               top: "10vh",
               maxHeight: "calc(90vh - 140px)",
-              left: "36px",
+              left: "20px",
+              right: "20px",
               bottom: "158px",
-              maxWidth: 360,
+              maxWidth: "calc(28rem - 40px)",
               zIndex: 50,
             }}
             className="glass-card-deep rounded-2xl"
