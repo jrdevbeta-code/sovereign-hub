@@ -39,7 +39,7 @@ const MentorSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col items-center px-5 py-0 -mt-10"
+      className="flex flex-col items-center px-5 py-0 -mt-16"
     >
       <div className="relative w-[173px] h-[173px]">
         {/* Teal illumination - fades in after Keiko lands */}
