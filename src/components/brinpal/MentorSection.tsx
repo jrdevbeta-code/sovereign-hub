@@ -2,34 +2,57 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
-// Star-burst particle distribution: 24 particles arranged on an irregular
-// multi-pointed star (mixing 7, 8 and 12 point geometries) covering top,
-// sides and bottom — never the predictable square edges of before.
+// Star-burst particle distribution: 60 tiny bright particles, mostly gold,
+// arranged on an irregular multi-pointed star (7/8/12 geometries) and
+// landing at DIFFERENT body points (head, shoulders, collar, sides, base)
+// rather than all converging on a single center point.
 const CENTER = 86; // container is 173x173 → center ~86
-const STAR_RADII = [150, 110, 165, 125, 145]; // irregular radii for "spikes"
-const PARTICLES = Array.from({ length: 24 }, (_, i) => {
-  // Combine 3 star geometries: 7-pt, 8-pt, 12-pt — interleaved by index
+
+// Landing targets across Keiko's body (relative to 173x173 container)
+const LANDING_TARGETS = [
+  { x: 86, y: 30 },   // top of head
+  { x: 70, y: 45 },   // upper-left head
+  { x: 102, y: 45 },  // upper-right head
+  { x: 86, y: 60 },   // diadem
+  { x: 60, y: 85 },   // left shoulder
+  { x: 112, y: 85 },  // right shoulder
+  { x: 86, y: 110 },  // collar (gold)
+  { x: 75, y: 115 },  // collar left
+  { x: 97, y: 115 },  // collar right
+  { x: 70, y: 135 },  // body left
+  { x: 102, y: 135 }, // body right
+  { x: 86, y: 150 },  // base
+];
+
+const STAR_RADII = [155, 115, 170, 130, 150, 140, 165];
+const PARTICLES = Array.from({ length: 60 }, (_, i) => {
   const geometries = [7, 8, 12];
   const g = geometries[i % 3];
   const pointIndex = Math.floor(i / 3);
-  // Slight angular jitter so it doesn't look mathematically regular
-  const jitter = ((i * 53) % 17) / 17 - 0.5; // -0.5..0.5
-  const angle = ((pointIndex / g) * Math.PI * 2) + (jitter * 0.35) - Math.PI / 2;
-  const radius = STAR_RADII[i % STAR_RADII.length];
+  const jitter = ((i * 53) % 17) / 17 - 0.5;
+  const angle = ((pointIndex / g) * Math.PI * 2) + (jitter * 0.55) - Math.PI / 2;
+  const radius = STAR_RADII[i % STAR_RADII.length] + ((i * 7) % 25);
 
   const x = CENTER + Math.cos(angle) * radius;
   const y = CENTER + Math.sin(angle) * radius;
 
-  const size = 3 + Math.round(Math.random() * 4); // 3-7px
-  const color = i % 2 === 0 ? "#38E056" : "#FFC107";
-  // Stagger delays so particles don't all fly in lockstep — wave effect
-  const delay = (Math.abs(jitter) * 0.4) + ((i % 4) * 0.06);
-  // Curved trajectory: each particle gets a control-point offset for arc motion
-  const curveSign = i % 2 === 0 ? 1 : -1;
-  const curveX = Math.cos(angle + Math.PI / 2) * 30 * curveSign;
-  const curveY = Math.sin(angle + Math.PI / 2) * 30 * curveSign;
+  const size = 1.5 + (i % 5) * 0.6; // 1.5–4px (smaller, brighter)
+  // 80% gold variants, 20% green accent
+  const goldShades = ["#FFD24A", "#FFC107", "#FFE27A", "#F5B400", "#FFCE3D"];
+  const color = i % 5 === 0 ? "#5BE07A" : goldShades[i % goldShades.length];
 
-  return { x, y, size, color, key: i, delay, curveX, curveY };
+  // Each particle lands at a different body target
+  const target = LANDING_TARGETS[i % LANDING_TARGETS.length];
+  // tiny per-particle scatter around the target
+  const tx = target.x + (((i * 13) % 9) - 4);
+  const ty = target.y + (((i * 19) % 9) - 4);
+
+  const delay = (Math.abs(jitter) * 0.5) + ((i % 6) * 0.04);
+  const curveSign = i % 2 === 0 ? 1 : -1;
+  const curveX = Math.cos(angle + Math.PI / 2) * (25 + (i % 4) * 6) * curveSign;
+  const curveY = Math.sin(angle + Math.PI / 2) * (25 + (i % 4) * 6) * curveSign;
+
+  return { x, y, tx, ty, size, color, key: i, delay, curveX, curveY };
 });
 
 const MentorSection = () => {
@@ -37,7 +60,7 @@ const MentorSection = () => {
 
   const handleProcess = () => {
     setIsProcessing(true);
-    setTimeout(() => setIsProcessing(false), 1800);
+    setTimeout(() => setIsProcessing(false), 4200);
   };
 
   useEffect(() => {
