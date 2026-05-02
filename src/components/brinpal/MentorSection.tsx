@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import mentorImg from "@/assets/mentor-avatar.png";
 
 // 24 particles distributed across 4 edges (6 per edge)
@@ -28,14 +28,20 @@ const MentorSection = () => {
     setTimeout(() => setIsProcessing(false), 1400);
   };
 
+  useEffect(() => {
+    const onProc = () => handleProcess();
+    window.addEventListener("brinpal:procesar", onProc);
+    return () => window.removeEventListener("brinpal:procesar", onProc);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col items-center px-5 py-0"
+      className="flex flex-col items-center px-5 py-0 -mt-5"
     >
-      <div className="relative w-[200px] h-[200px]">
+      <div className="relative w-[173px] h-[173px]">
         {/* Teal illumination - fades in after Keiko lands */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -100,8 +106,8 @@ const MentorSection = () => {
           <motion.img
             src={mentorImg}
             alt="Keiko - Tu asistente"
-            width={182}
-            height={182}
+            width={173}
+            height={173}
             className="mentor-glow float-animation"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
@@ -113,19 +119,10 @@ const MentorSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.4, ease: "easeOut" }}
-        className="mt-0 text-sm text-muted-foreground font-exo text-center"
+        className="-mt-3 text-sm text-muted-foreground font-exo text-center"
       >
         Hola, soy <span className="text-cyan cyan-glow font-semibold">Keiko</span>. ¿En qué te ayudo hoy?
       </motion.p>
-
-      {/* Temporary test button */}
-      <button
-        onClick={handleProcess}
-        disabled={isProcessing}
-        className="mt-3 px-4 py-1.5 text-[10px] font-orbitron tracking-widest uppercase rounded-full text-cyan border border-cyan/30 hover:bg-cyan/10 transition disabled:opacity-50"
-      >
-        {isProcessing ? "Procesando..." : "Procesar"}
-      </button>
     </motion.section>
   );
 };
