@@ -7,7 +7,7 @@ const MicButton = () => {
   const [text, setText] = useState("");
 
   return (
-    <div className="flex justify-center items-center gap-3 py-4 px-5">
+    <div className="flex justify-center items-center gap-3 py-2 px-5">
       <AnimatePresence mode="wait">
         {showInput ? (
           <motion.div
@@ -65,25 +65,25 @@ const MicButton = () => {
             <motion.button
               whileTap={{ scale: 0.92 }}
               whileHover={{ scale: 1.08 }}
-              className="relative w-16 h-16 rounded-full bg-gradient-to-br from-cyan to-gold flex items-center justify-center mic-pulse"
+              className="relative w-14 h-14 rounded-full bg-gradient-to-br from-cyan to-gold flex items-center justify-center mic-pulse"
               aria-label="Activar micrófono"
             >
               <span className="absolute inset-0 rounded-full border border-cyan/40 animate-ping opacity-30" />
-              <Mic className="w-7 h-7 text-primary-foreground relative z-10" />
+              <Mic className="w-6 h-6 text-primary-foreground relative z-10" />
             </motion.button>
 
             <motion.button
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
               onClick={() => setShowInput(true)}
-              className="w-10 h-10 rounded-full flex items-center justify-center"
+              className="w-9 h-9 rounded-full flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, hsla(216,30%,14%,0.8), hsla(216,30%,8%,0.6))",
                 border: "1px solid hsla(185,100%,50%,0.2)",
               }}
               aria-label="Abrir teclado"
             >
-              <Keyboard className="w-5 h-5 text-cyan" />
+              <Keyboard className="w-4 h-4 text-cyan" />
             </motion.button>
           </motion.div>
         )}
