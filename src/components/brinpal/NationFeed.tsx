@@ -39,12 +39,12 @@ const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) =
     { label: "BP", value: bp, bg: "hsl(145,60%,40%)", color: "hsl(0,0%,100%)" },
   ];
   return (
-    <div className="flex flex-col gap-[1px] rounded-md overflow-hidden mt-2">
+    <div className="flex gap-[2px] rounded-md overflow-hidden mt-2">
       {segments.map((seg) => (
         <div
           key={seg.label}
-          className="flex items-center justify-between gap-1.5 px-2 py-[2px]"
-          style={{ background: seg.bg, color: seg.color }}
+          className="flex items-center justify-between gap-1 px-1.5 py-[3px] flex-1 min-w-0"
+          style={{ background: seg.bg, color: seg.color, flexGrow: seg.value.length > 5 ? 1.6 : 1 }}
         >
           <span className="text-[8px] font-orbitron font-bold">{seg.label}</span>
           <span
@@ -106,7 +106,7 @@ const NationFeed = () => {
                   </p>
                 </div>
                 <div className="flex flex-col items-end shrink-0 gap-1">
-                  <span className="text-[9px] text-muted-foreground font-exo font-bold">{item.time}</span>
+                  <span className="text-[9px] text-white font-exo font-bold">{item.time}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
