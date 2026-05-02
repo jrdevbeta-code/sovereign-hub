@@ -6,7 +6,7 @@ import VacaCard from "@/components/brinpal/VacaCard";
 import NationFeed from "@/components/brinpal/NationFeed";
 import BottomNav from "@/components/brinpal/BottomNav";
 import NeonBorder from "@/components/brinpal/NeonBorder";
-import KeikoHint from "@/components/brinpal/KeikoHint";
+
 
 const Index = () => {
   return (
@@ -21,7 +21,7 @@ const Index = () => {
       </div>
       <NationFeed />
       <BottomNav />
-      <KeikoHint />
+      
     </div>
   );
 };
