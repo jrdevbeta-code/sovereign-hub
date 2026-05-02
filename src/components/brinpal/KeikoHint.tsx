@@ -6,6 +6,21 @@ import mentorImg from "@/assets/mentor-avatar.png";
 
 type Estado = "hidden" | "peeking" | "open" | "dismissed";
 
+type InsightCard = {
+  id: string;
+  Icon: typeof TrendingUp;
+  iconClassName?: string;
+  iconColor?: string;
+  label: string;
+  background: string;
+  border: string;
+  pillBg: string;
+  pillColor: string;
+  title: string;
+  description: string;
+  terna?: { bs: string; bcv: string; bp: string };
+};
+
 const InlineTerna = ({ bs, bcv, bp }: { bs: string; bcv: string; bp: string }) => {
   const segments = [
     { label: "Bs", value: bs, bg: "hsl(0,0%,96%)", color: "hsl(0,0%,10%)" },
@@ -37,6 +52,7 @@ const KeikoHint = () => {
   const [estado, setEstado] = useState<Estado>("hidden");
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [dismissedCards, setDismissedCards] = useState<string[]>([]);
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
@@ -54,6 +70,76 @@ const KeikoHint = () => {
 
   const isActive = estado === "peeking" || estado === "open";
   const miniX = isActive ? 0 : -60;
+
+  const insightCards: InsightCard[] = [
+    {
+      id: "radar",
+      Icon: TrendingUp,
+      iconClassName: "text-gold",
+      label: "Radar",
+      background: "hsla(43,80%,60%,0.06)",
+      border: "1px solid hsla(43,80%,60%,0.1)",
+      pillBg: "hsla(43,80%,60%,0.15)",
+      pillColor: "hsl(43,80%,60%)",
+      title: "El arroz subió 12% en El Marqués",
+      description: "Mejor comprarlo hoy — tendencia alcista esta semana",
+      terna: { bs: "321.524,89", bcv: "662,93", bp: "502,45" },
+    },
+    {
+      id: "nexus",
+      Icon: Users,
+      iconClassName: "text-cyan",
+      label: "Nexus",
+      background: "hsla(185,100%,50%,0.06)",
+      border: "1px solid hsla(185,100%,50%,0.1)",
+      pillBg: "hsla(185,100%,50%,0.15)",
+      pillColor: "hsl(185,100%,50%)",
+      title: "Ana acaba de unirse a Vecinos del Marqués",
+      description: "Referida por Carlos · Tu círculo ahora tiene 12 activos",
+    },
+    {
+      id: "taller",
+      Icon: Sparkles,
+      iconClassName: "text-gold",
+      label: "Taller",
+      background: "hsla(43,80%,60%,0.06)",
+      border: "1px solid hsla(43,80%,60%,0.1)",
+      pillBg: "hsla(43,80%,60%,0.15)",
+      pillColor: "hsl(43,80%,60%)",
+      title: "Tu propuesta tiene 4 días sin respuesta",
+      description: "El comité revisa ideas cada 1ro de mes · Faltan 6 días",
+    },
+    {
+      id: "netflix",
+      Icon: Film,
+      iconColor: "hsl(0,75%,60%)",
+      label: "Ocio · Netflix",
+      background: "hsla(0,75%,55%,0.06)",
+      border: "1px solid hsla(0,75%,55%,0.12)",
+      pillBg: "hsla(0,75%,55%,0.15)",
+      pillColor: "hsl(0,75%,65%)",
+      title: "\"El Eternauta\" — estreno trending #1",
+      description: "Sci-fi argentina · 6 episodios · 94% match para tu gusto",
+    },
+    {
+      id: "music",
+      Icon: Music,
+      iconColor: "hsl(280,70%,70%)",
+      label: "Ocio · Música",
+      background: "hsla(280,60%,55%,0.06)",
+      border: "1px solid hsla(280,60%,55%,0.12)",
+      pillBg: "hsla(280,60%,55%,0.15)",
+      pillColor: "hsl(280,70%,75%)",
+      title: "Alejandro Sanz lanza \"Ascendente\"",
+      description: "12 tracks · Reseña: 4.6/5 · Flamenco-pop íntimo y maduro",
+    },
+  ];
+
+  const visibleInsightCards = insightCards.filter((card) => !dismissedCards.includes(card.id));
+
+  const dismissCard = (id: string) => {
+    setDismissedCards((prev) => (prev.includes(id) ? prev : [...prev, id]));
+  };
 
   const handleMiniTap = () => {
     if (estado === "peeking") setEstado("open");
@@ -219,168 +305,66 @@ const KeikoHint = () => {
                   overflowX: "hidden",
                   overflowY: "auto",
                   padding: "4px 2px",
-                  maxHeight: "calc(96vh - 120px)",
+                  maxHeight: "calc(86.4vh - 108px)",
                   WebkitOverflowScrolling: "touch",
                   overscrollBehavior: "contain",
                   scrollbarWidth: "thin",
                   msOverflowStyle: "auto",
                 }}
               >
-                {/* Tarjeta 1 — Radar */}
-                <div
-                  className="rounded-xl"
-                  style={{
-                    background: "hsla(43,80%,60%,0.06)",
-                    border: "1px solid hsla(43,80%,60%,0.1)",
-                    padding: "10px 10px",
-                    width: "100%",
-                    scrollSnapAlign: "start",
-                  }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <TrendingUp className="w-3.5 h-3.5 text-gold" />
-                    <span
-                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
-                      style={{
-                        background: "hsla(43,80%,60%,0.15)",
-                        color: "hsl(43,80%,60%)",
-                      }}
-                    >
-                      Radar
-                    </span>
-                  </div>
-                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
-                    El arroz subió 12% en El Marqués
-                  </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
-                    Mejor comprarlo hoy — tendencia alcista esta semana
-                  </p>
-                  <InlineTerna bs="321.524,89" bcv="662,93" bp="502,45" />
-                </div>
+                <AnimatePresence initial={false}>
+                  {visibleInsightCards.map((card) => {
+                    const Icon = card.Icon;
 
-                {/* Tarjeta 2 — Nexus */}
-                <div
-                  className="rounded-xl"
-                  style={{
-                    background: "hsla(185,100%,50%,0.06)",
-                    border: "1px solid hsla(185,100%,50%,0.1)",
-                    padding: "10px 10px",
-                    width: "100%",
-                    scrollSnapAlign: "start",
-                  }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Users className="w-3.5 h-3.5 text-cyan" />
-                    <span
-                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
-                      style={{
-                        background: "hsla(185,100%,50%,0.15)",
-                        color: "hsl(185,100%,50%)",
-                      }}
-                    >
-                      Nexus
-                    </span>
-                  </div>
-                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
-                    Ana acaba de unirse a Vecinos del Marqués
-                  </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
-                    Referida por Carlos · Tu círculo ahora tiene 12 activos
-                  </p>
-                </div>
-
-                {/* Tarjeta 3 — Taller */}
-                <div
-                  className="rounded-xl"
-                  style={{
-                    background: "hsla(43,80%,60%,0.06)",
-                    border: "1px solid hsla(43,80%,60%,0.1)",
-                    padding: "10px 10px",
-                    width: "100%",
-                    scrollSnapAlign: "start",
-                  }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Sparkles className="w-3.5 h-3.5 text-gold" />
-                    <span
-                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
-                      style={{
-                        background: "hsla(43,80%,60%,0.15)",
-                        color: "hsl(43,80%,60%)",
-                      }}
-                    >
-                      Taller
-                    </span>
-                  </div>
-                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
-                    Tu propuesta tiene 4 días sin respuesta
-                  </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
-                    El comité revisa ideas cada 1ro de mes · Faltan 6 días
-                  </p>
-                </div>
-
-                {/* Tarjeta 4 — Ocio · Netflix */}
-                <div
-                  className="rounded-xl"
-                  style={{
-                    background: "hsla(0,75%,55%,0.06)",
-                    border: "1px solid hsla(0,75%,55%,0.12)",
-                    padding: "10px 10px",
-                    width: "100%",
-                    scrollSnapAlign: "start",
-                  }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Film className="w-3.5 h-3.5" style={{ color: "hsl(0,75%,60%)" }} />
-                    <span
-                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
-                      style={{
-                        background: "hsla(0,75%,55%,0.15)",
-                        color: "hsl(0,75%,65%)",
-                      }}
-                    >
-                      Ocio · Netflix
-                    </span>
-                  </div>
-                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
-                    "El Eternauta" — estreno trending #1
-                  </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
-                    Sci-fi argentina · 6 episodios · 94% match para tu gusto
-                  </p>
-                </div>
-
-                {/* Tarjeta 5 — Ocio · Música */}
-                <div
-                  className="rounded-xl"
-                  style={{
-                    background: "hsla(280,60%,55%,0.06)",
-                    border: "1px solid hsla(280,60%,55%,0.12)",
-                    padding: "10px 10px",
-                    width: "100%",
-                    scrollSnapAlign: "start",
-                  }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Music className="w-3.5 h-3.5" style={{ color: "hsl(280,70%,70%)" }} />
-                    <span
-                      className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
-                      style={{
-                        background: "hsla(280,60%,55%,0.15)",
-                        color: "hsl(280,70%,75%)",
-                      }}
-                    >
-                      Ocio · Música
-                    </span>
-                  </div>
-                  <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
-                    Alejandro Sanz lanza "Ascendente"
-                  </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
-                    12 tracks · Reseña: 4.6/5 · Flamenco-pop íntimo y maduro
-                  </p>
-                </div>
+                    return (
+                      <motion.div
+                        key={card.id}
+                        layout
+                        initial={{ opacity: 0, x: 20, scale: 0.98 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: 90, scale: 0.96 }}
+                        transition={{ duration: 0.24, ease: "easeOut" }}
+                        className="relative rounded-xl"
+                        style={{
+                          background: card.background,
+                          border: card.border,
+                          padding: "10px 30px 10px 10px",
+                          width: "100%",
+                          scrollSnapAlign: "start",
+                        }}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => dismissCard(card.id)}
+                          className="absolute top-2 right-2 w-5 h-5 flex items-center justify-center rounded-full"
+                          style={{ color: "hsl(0,0%,100%)" }}
+                          aria-label="Cerrar tarjeta"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                        <div className="flex items-center gap-2 mb-1">
+                          <Icon className={`w-3.5 h-3.5 ${card.iconClassName ?? ""}`} style={{ color: card.iconColor }} />
+                          <span
+                            className="text-[10px] font-orbitron px-2 py-0.5 rounded-full"
+                            style={{
+                              background: card.pillBg,
+                              color: card.pillColor,
+                            }}
+                          >
+                            {card.label}
+                          </span>
+                        </div>
+                        <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
+                          {card.title}
+                        </p>
+                        <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
+                          {card.description}
+                        </p>
+                        {card.terna && <InlineTerna bs={card.terna.bs} bcv={card.terna.bcv} bp={card.terna.bp} />}
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
               </div>
 
               {/* Footer */}
