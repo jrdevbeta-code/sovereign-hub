@@ -7,7 +7,7 @@ const navItems = [
   { id: "inicio", label: "Inicio", sub: "Home", icon: Shield, badge: 0 },
   { id: "nexus", label: "Nexus", sub: "Círculos", icon: Users, badge: 3 },
   { id: "flow", label: "Flow", sub: "Gastos", icon: ArrowRightLeft, badge: 0 },
-  { id: "radar", label: "Radar", sub: "Búsquedas", icon: Radar, badge: 12 },
+  { id: "radar", label: "Radar", sub: "Búsquedas", icon: RadarIcon, badge: 12 },
   { id: "boveda", label: "Bóveda", sub: "Tesoros", icon: Lock, badge: 0 },
 ];
 
