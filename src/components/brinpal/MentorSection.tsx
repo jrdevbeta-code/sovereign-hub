@@ -231,30 +231,6 @@ const MentorSection = () => {
               />
             )}
           </AnimatePresence>
-
-          {/* Headband (diadema) violet tint overlay — replaces cyan temporarily */}
-          <AnimatePresence>
-            {isProcessing && (
-              <motion.div
-                key="diadem-violet"
-                className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-                style={{
-                  top: "8%",
-                  width: 70,
-                  height: 22,
-                  borderRadius: "50%",
-                  background:
-                    "radial-gradient(ellipse, hsla(280,100%,65%,0.85) 0%, hsla(265,90%,55%,0.4) 45%, transparent 75%)",
-                  filter: "blur(3px)",
-                  mixBlendMode: "screen",
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.95, 0.95, 0] }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.6, delay: 0.3, ease: "easeInOut", times: [0, 0.25, 0.8, 1] }}
-              />
-            )}
-          </AnimatePresence>
         </motion.div>
       </div>
 
