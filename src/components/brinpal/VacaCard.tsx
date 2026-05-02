@@ -46,8 +46,13 @@ const MicroPiano = ({ bs, bcv, bp, activeCurrency = "bp" }: { bs: string; bcv: s
               transition: "all 0.25s ease",
             }}
           >
-            <span className="text-[7px] font-orbitron font-bold">{seg.label}</span>
-            <span className="text-[9px] font-orbitron font-bold ml-auto whitespace-nowrap">{seg.value}</span>
+            <span className="text-[8px] font-orbitron font-bold">{seg.label}</span>
+            <span
+              className="text-[10px] font-orbitron ml-auto whitespace-nowrap"
+              style={{ fontWeight: seg.key === "bcv" ? 900 : 700 }}
+            >
+              {seg.value}
+            </span>
           </div>
         );
       })}
@@ -126,7 +131,7 @@ const VacaCard = () => {
               {m.letter}
             </div>
             <span className="text-[11px] text-foreground font-exo shrink-0">{m.name}</span>
-            <div className="ml-auto w-[115px] shrink-0 mr-3">
+            <div className="ml-auto w-[125px] shrink-0 mr-3">
               <MicroPiano bs={m.bs} bcv={m.bcv} bp={m.bp} activeCurrency="bp" />
             </div>
           </div>
