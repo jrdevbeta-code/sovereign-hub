@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { TrendingUp, Users, Sparkles, Mic, Keyboard, X, Send, Film, Music } from "lucide-react";
+import { TrendingUp, Sparkles, Mic, Keyboard, X, Send, Film, Music } from "lucide-react";
+import NexusIcon from "./NexusIcon";
 import RadarIcon from "./RadarIcon";
 import mentorImg from "@/assets/mentor-avatar.png";
 
@@ -88,7 +89,7 @@ const KeikoHint = () => {
     },
     {
       id: "nexus",
-      Icon: Users,
+      Icon: NexusIcon,
       iconClassName: "text-cyan",
       label: "Nexus",
       background: "hsla(185,100%,50%,0.06)",
