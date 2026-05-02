@@ -356,7 +356,10 @@ const KeikoHint = () => {
                             {card.label}
                           </span>
                         </div>
-                        <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
+                        <p
+                          className="text-[13px] font-orbitron text-foreground leading-tight"
+                          style={{ fontWeight: 900, letterSpacing: "0.05em" }}
+                        >
                           {card.title}
                         </p>
                         <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
