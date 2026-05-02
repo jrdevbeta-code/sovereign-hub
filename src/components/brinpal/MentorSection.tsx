@@ -105,23 +105,6 @@ const MentorSection = () => {
                 hidden: {},
               }}
             >
-              {/* Faint gold aura ring that expands outward as particles converge */}
-              <motion.div
-                className="absolute left-1/2 top-1/2 rounded-full pointer-events-none"
-                style={{
-                  width: 200,
-                  height: 200,
-                  marginLeft: -100,
-                  marginTop: -100,
-                  background:
-                    "radial-gradient(circle, transparent 55%, hsla(43,90%,60%,0.22) 65%, transparent 75%)",
-                  filter: "blur(4px)",
-                }}
-                initial={{ scale: 0.4, opacity: 0 }}
-                animate={{ scale: [0.4, 1.1, 0.6], opacity: [0, 0.9, 0] }}
-                transition={{ duration: 1.6, ease: "easeOut" }}
-              />
-
               {PARTICLES.map((p) => (
                 <motion.span
                   key={p.key}
