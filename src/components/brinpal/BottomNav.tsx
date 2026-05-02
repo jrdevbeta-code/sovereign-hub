@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Shield, Users, ArrowRightLeft, Radar, Lock } from "lucide-react";
+import { Shield, Users, ArrowRightLeft, Lock } from "lucide-react";
+import RadarIcon from "./RadarIcon";
 import { useState } from "react";
 
 const navItems = [
