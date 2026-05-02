@@ -99,8 +99,42 @@ const NationFeed = () => {
 
   return (
     <div className="px-5 pb-4">
-      <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase mb-3">
-        <Satellite className="w-3.5 h-3.5 text-cyan inline mr-1.5" />
+      <p className="text-[10px] font-orbitron tracking-widest text-muted-foreground uppercase mb-3 inline-flex items-center gap-1.5">
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ width: 22, height: 22, flexShrink: 0 }}
+        >
+          <defs>
+            <style>{`
+              .o1n{ transform-origin:20px 20px; animation: orbit1n 7s linear infinite; }
+              .o3n{ transform-origin:20px 20px; animation: orbit3n 3s linear infinite; }
+              .prn{ animation: pulse-ringn 2.2s ease-in-out infinite; }
+              .pgn{ animation: ping-goldn 1.8s ease-out infinite; }
+              .bgn{ animation: blink-goldn 1.8s ease-in-out infinite; }
+              .trvn{ transform-origin:20px 20px; animation: travel-vn 3s linear infinite; }
+              @keyframes orbit1n { from{ transform:rotate(0deg);} to{ transform:rotate(360deg);} }
+              @keyframes orbit3n { from{ transform:rotate(0deg);} to{ transform:rotate(360deg);} }
+              @keyframes pulse-ringn { 0%,100%{ opacity:0.55;} 50%{ opacity:0.12;} }
+              @keyframes ping-goldn { 0%{ r:3; opacity:0.8;} 100%{ r:9; opacity:0;} }
+              @keyframes blink-goldn { 0%,100%{ opacity:1;} 50%{ opacity:0.2;} }
+              @keyframes travel-vn {
+                from{ transform:rotate(0deg) translateY(-17px) rotate(0deg); }
+                to  { transform:rotate(360deg) translateY(-17px) rotate(-360deg); }
+              }
+            `}</style>
+          </defs>
+          <ellipse cx="20" cy="20" rx="4" ry="17" stroke="hsl(43,80%,62%)" strokeWidth="1.0" fill="none" opacity="0.6" className="o3n prn"/>
+          <ellipse cx="20" cy="20" rx="16" ry="5" stroke="hsl(185,100%,52%)" strokeWidth="1.2" fill="none" className="o1n prn"/>
+          <ellipse cx="20" cy="20" rx="16" ry="5" stroke="hsl(43,80%,62%)" strokeWidth="0.9" fill="none" transform="rotate(60 20 20)" className="prn"/>
+          <path d="M11 12 Q20 6 29 12" stroke="hsl(185,100%,52%)" strokeWidth="1.4" fill="none"/>
+          <path d="M11 28 Q20 34 29 28" stroke="hsl(185,100%,52%)" strokeWidth="1.4" fill="none"/>
+          <circle cx="20" cy="20" r="1.8" fill="hsl(185,100%,52%)" stroke="none" className="trvn"/>
+          <circle cx="20" cy="20" r="3" fill="hsl(43,80%,62%)" opacity="0.25" stroke="none" className="pgn"/>
+          <circle cx="20" cy="20" r="3" fill="hsl(43,80%,62%)" stroke="none" className="bgn"/>
+        </svg>
         Eco-Esfera
         <span className="text-cyan" style={{ fontSize: '2.5em', verticalAlign: 'middle', lineHeight: 0, position: 'relative', top: '-2px', marginLeft: '5px' }}>∞</span>
       </p>
