@@ -36,7 +36,7 @@ const KeikoHint = () => {
   }, [estado]);
 
   const isActive = estado === "peeking" || estado === "open";
-  const miniX = isActive ? 0 : -60;
+  const miniX = isActive ? 28 : -60;
 
   const handleMiniTap = () => {
     if (estado === "peeking") setEstado("open");
@@ -59,14 +59,14 @@ const KeikoHint = () => {
       </AnimatePresence>
 
       {/* Mini Keiko */}
-      <div className="fixed left-0 z-50 pointer-events-none" style={{ bottom: 160 }}>
+      <div className="fixed z-50 pointer-events-none" style={{ bottom: 160, left: -38 }}>
         <motion.div
           className="relative pointer-events-auto"
           initial={{ x: -60 }}
           animate={{ x: miniX }}
           transition={{ duration: estado === "dismissed" ? 0.4 : 0.6, ease: "easeOut" }}
         >
-          <div className="relative cursor-pointer" onClick={handleMiniTap}>
+          <div className="relative cursor-pointer" style={{ position: "relative" }} onClick={handleMiniTap}>
             {/* Wave en peeking */}
             {estado === "peeking" && (
               <motion.div
@@ -98,7 +98,7 @@ const KeikoHint = () => {
 
             {/* Badge pulsante cyan en peeking */}
             {estado === "peeking" && (
-              <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+              <span className="absolute flex h-2.5 w-2.5" style={{ top: -4, right: -4 }}>
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-60" />
                 <span
                   className="relative inline-flex rounded-full h-2.5 w-2.5"
@@ -123,7 +123,7 @@ const KeikoHint = () => {
               originY: 1,
               width: "calc(100vw - 72px)",
               maxHeight: "55vh",
-              left: 60,
+              left: 50,
               bottom: 140,
               maxWidth: 360,
             }}
