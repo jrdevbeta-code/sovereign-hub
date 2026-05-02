@@ -60,7 +60,7 @@ const MentorSection = () => {
 
   const handleProcess = () => {
     setIsProcessing(true);
-    setTimeout(() => setIsProcessing(false), 4200);
+    setTimeout(() => setIsProcessing(false), 7500);
   };
 
   useEffect(() => {
@@ -153,35 +153,39 @@ const MentorSection = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
           />
 
-          {/* Heart/collar inner glow — pulses inside Keiko's chest for 3s */}
+          {/* Heart glow — rises from feet up to chest, then pulses 6s on the heart.
+              z-index: 15 keeps it visually IN FRONT of Keiko so it reads as a
+              glowing core, not a shadow behind the legs. */}
           <AnimatePresence>
             {isProcessing && (
               <motion.div
                 key="heart-glow"
                 className="absolute pointer-events-none"
                 style={{
-                  top: "58%",
+                  top: 0,
                   left: "50%",
-                  marginLeft: -18,
-                  width: 36,
-                  height: 36,
+                  marginLeft: -28,
+                  width: 56,
+                  height: 56,
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle, hsla(45,100%,92%,1) 0%, hsla(43,100%,70%,0.95) 28%, hsla(40,95%,55%,0.55) 55%, transparent 78%)",
-                  filter: "blur(3px)",
+                    "radial-gradient(circle, hsla(48,100%,96%,1) 0%, hsla(45,100%,80%,0.98) 22%, hsla(43,100%,62%,0.85) 45%, hsla(40,95%,50%,0.45) 65%, transparent 82%)",
+                  filter: "blur(4px)",
                   mixBlendMode: "screen",
+                  zIndex: 15,
                 }}
-                initial={{ opacity: 0, scale: 0.7 }}
+                initial={{ opacity: 0, scale: 0.5, y: 168 }}
                 animate={{
-                  opacity: [0, 1, 0.75, 1, 0.7, 0],
-                  scale: [0.7, 1.15, 0.95, 1.18, 1, 0.85],
+                  y: [168, 150, 120, 95, 95, 95, 95, 95, 95],
+                  opacity: [0, 0.85, 1, 1, 1, 1, 1, 1, 0],
+                  scale: [0.5, 0.85, 1.05, 1.25, 1.1, 1.3, 1.15, 1.25, 0.9],
                 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 3,
+                  duration: 6,
                   delay: 1.0,
                   ease: "easeInOut",
-                  times: [0, 0.18, 0.4, 0.62, 0.85, 1],
+                  times: [0, 0.08, 0.16, 0.24, 0.4, 0.55, 0.7, 0.9, 1],
                 }}
               />
             )}
