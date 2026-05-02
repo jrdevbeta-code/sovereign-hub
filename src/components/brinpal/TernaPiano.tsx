@@ -70,7 +70,7 @@ const TernaPiano = () => {
       {/* Product info + trend */}
       <div className="mb-2">
         <p className="text-sm font-semibold text-foreground">
-          Queso · El Marqués
+          Queso Duro/Llanero (Kg) · El Marqués
         </p>
         <p className="text-[10px] mt-0.5 font-exo" style={{ color: "hsla(0,0%,100%,0.8)" }}>
           Último reporte: Hace 2h
