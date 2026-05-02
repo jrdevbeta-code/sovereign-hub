@@ -197,7 +197,7 @@ const KeikoHint = () => {
                   overflowX: "hidden",
                   overflowY: "auto",
                   padding: "8px",
-                  maxHeight: "calc(72vh - 110px)",
+                  maxHeight: "calc(90vh - 220px)",
                   scrollSnapType: "y mandatory",
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
