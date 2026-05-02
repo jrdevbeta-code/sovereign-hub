@@ -3,25 +3,28 @@ import { Satellite, TrendingUp } from "lucide-react";
 
 const strips = [
   {
-    value: "240,00",
+    value: "321.524,89",
     label: "Bs",
     bg: "linear-gradient(135deg, hsl(0,0%,96%), hsl(0,0%,100%))",
     textColor: "hsl(0,0%,10%)",
     labelColor: "hsl(0,0%,30%)",
+    weight: 1.7,
   },
   {
-    value: "36,50",
+    value: "662,93",
     label: "BCV",
     bg: "linear-gradient(135deg, hsl(216,80%,45%), hsl(216,90%,55%))",
     textColor: "hsl(0,0%,100%)",
     labelColor: "hsla(0,0%,100%,0.7)",
+    weight: 1,
   },
   {
-    value: "6,58",
+    value: "502,45",
     label: "BP",
     bg: "linear-gradient(135deg, hsl(145,60%,38%), hsl(145,70%,45%))",
     textColor: "hsl(0,0%,100%)",
     labelColor: "hsla(0,0%,100%,0.7)",
+    weight: 1,
   },
 ];
 
