@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
+import { TrendingUp, ChevronDown, Satellite } from "lucide-react";
 import RadarIcon from "./RadarIcon";
+import NexusIcon from "./NexusIcon";
 import React, { useState } from "react";
 
 interface FeedItem {
@@ -21,7 +22,7 @@ interface FeedItem {
 
 const feedItems: FeedItem[] = [
   {
-    icon: Users,
+    icon: NexusIcon,
     accent: "cyan",
     title: "Nuevo miembro en tu círculo",
     description: "Ana se unió a 'Vecinos del Marqués'",

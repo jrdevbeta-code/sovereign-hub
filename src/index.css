@@ -166,3 +166,12 @@
   60% { stroke-dashoffset: 500; }
   100% { stroke-dashoffset: 1240; }
 }
+
+@keyframes approach-nexus {
+  0%,100%{ transform:translate(0px,0px) scale(0.6); opacity:0; }
+  50%    { transform:translate(-5px,-3px) scale(1); opacity:1; }
+}
+@keyframes pulse-nexus-node {
+  0%,100%{ r:1.5; opacity:0.9; }
+  50%    { r:3; opacity:0.3; }
+}
