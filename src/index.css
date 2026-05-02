@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 216 40% 5%;
+    --background: 0 0% 7%;
     --foreground: 210 20% 92%;
 
     --card: 216 30% 10%;
@@ -40,7 +40,7 @@
     --gold-bright: 43 80% 60%;
     --cyan: 185 100% 50%;
     --cyan-glow: 185 100% 65%;
-    --midnight: 216 40% 5%;
+    --midnight: 0 0% 5%;
     --midnight-light: 216 30% 10%;
 
     --sidebar-background: 216 30% 8%;
