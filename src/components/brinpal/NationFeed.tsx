@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Radio, Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
+import { Users, TrendingUp, ChevronDown, Satellite } from "lucide-react";
+import RadarIcon from "./RadarIcon";
 import { useState } from "react";
 
 interface FeedItem {
