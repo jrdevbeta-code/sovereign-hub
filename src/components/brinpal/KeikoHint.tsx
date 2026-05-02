@@ -177,11 +177,11 @@ const KeikoHint = () => {
               originX: 0,
               originY: 1,
               width: "calc(100vw - 40px)",
-              top: "10vh",
-              maxHeight: "calc(90vh - 60px)",
+              top: "4vh",
+              maxHeight: "calc(96vh - 20px)",
               left: "20px",
               right: "20px",
-              bottom: "60px",
+              bottom: "20px",
               maxWidth: "calc(28rem - 40px)",
               zIndex: 50,
             }}
@@ -252,7 +252,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     El arroz subió 12% en El Marqués
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
                     Mejor comprarlo hoy — tendencia alcista esta semana
                   </p>
                   <InlineTerna bs="321.524,89" bcv="662,93" bp="502,45" />
@@ -284,7 +284,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Ana acaba de unirse a Vecinos del Marqués
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
                     Referida por Carlos · Tu círculo ahora tiene 12 activos
                   </p>
                 </div>
@@ -315,7 +315,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Tu propuesta tiene 4 días sin respuesta
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
                     El comité revisa ideas cada 1ro de mes · Faltan 6 días
                   </p>
                 </div>
@@ -346,7 +346,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     "El Eternauta" — estreno trending #1
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
                     Sci-fi argentina · 6 episodios · 94% match para tu gusto
                   </p>
                 </div>
@@ -377,7 +377,7 @@ const KeikoHint = () => {
                   <p className="text-[13px] font-orbitron font-bold text-foreground leading-tight">
                     Alejandro Sanz lanza "Ascendente"
                   </p>
-                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(210,10%,80%)" }}>
+                  <p className="text-[12px] font-exo mt-0.5" style={{ color: "hsl(0,0%,95%)" }}>
                     12 tracks · Reseña: 4.6/5 · Flamenco-pop íntimo y maduro
                   </p>
                 </div>
@@ -421,7 +421,7 @@ const KeikoHint = () => {
                           <Keyboard className="w-4 h-4 text-gold" />
                         </motion.button>
                       </div>
-                      <p className="text-[12px] font-exo" style={{ color: "hsl(210,10%,80%)" }}>
+                      <p className="text-[12px] font-exo" style={{ color: "hsl(0,0%,95%)" }}>
                         o pregúntame algo
                       </p>
                     </motion.div>
