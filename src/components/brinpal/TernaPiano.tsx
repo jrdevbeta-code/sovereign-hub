@@ -58,11 +58,11 @@ const TernaPiano = () => {
         }}>Radar</span>
         <span style={{
           display:'inline-flex', alignItems:'center',
-          fontSize:'10px', fontWeight:700, padding:'3px 10px',
-          borderRadius:'100px', letterSpacing:'0.05em',
+          fontSize:'10px', fontWeight:600, padding:'3px 10px',
+          borderRadius:'100px', letterSpacing:'0.1em',
           background:'rgba(255,255,255,0.06)',
-          color:'rgba(255,255,255,0.75)',
-          border:'1px solid rgba(255,255,255,0.2)',
+          color:'rgba(255,255,255,1)',
+          border:'1px solid rgba(255,255,255,0.18)',
         }}>Precios</span>
       </div>
 
