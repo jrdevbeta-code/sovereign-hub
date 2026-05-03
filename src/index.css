@@ -175,3 +175,28 @@
   0%,100%{ r:1.5; opacity:0.9; }
   50%    { r:3; opacity:0.3; }
 }
+
+@keyframes spotlight-beam-cine {
+  0%,100%{ opacity:0.1; }
+  50%    { opacity:0.45; }
+}
+@keyframes star-pulse-cine {
+  0%,100%{ opacity:1; transform:scale(1); }
+  50%    { opacity:0.4; transform:scale(0.8); }
+}
+@keyframes bar-eq-m1 {
+  0%,100%{ height:6px; y:18px; }
+  50%    { height:13px; y:11px; }
+}
+@keyframes bar-eq-m2 {
+  0%,100%{ height:10px; y:14px; }
+  50%    { height:6px; y:18px; }
+}
+@keyframes bar-eq-m3 {
+  0%,100%{ height:13px; y:11px; }
+  50%    { height:8px; y:16px; }
+}
+@keyframes note-float-m {
+  0%  { transform:translate(0,0) scale(1); opacity:0.9; }
+  100%{ transform:translate(4px,-10px) scale(0.4); opacity:0; }
+}

@@ -345,7 +345,58 @@ const KeikoHint = () => {
                           <X className="w-3.5 h-3.5" />
                         </button>
                         <div className="flex items-center gap-2 mb-1">
-                          <Icon className={`w-3.5 h-3.5 ${card.iconClassName ?? ""}`} style={{ color: card.iconColor }} />
+                          {card.id === 'netflix' ? (
+                            <svg width="14" height="14" viewBox="0 0 32 32"
+                              fill="none" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M6 14 L26 8 L26 24 Z"
+                                fill="hsl(28,90%,62%)" stroke="none" opacity="0.15"
+                                style={{ animation:'spotlight-beam-cine 2s ease-in-out infinite',
+                                         transformOrigin:'6px 16px' }}/>
+                              <rect x="2" y="12" width="10" height="8" rx="2"
+                                stroke="hsl(28,90%,62%)" strokeWidth="2"/>
+                              <circle cx="12" cy="16" r="3"
+                                stroke="hsl(28,90%,62%)" strokeWidth="1.8"/>
+                              <rect x="24" y="8" width="6" height="16" rx="1"
+                                stroke="hsl(165,70%,55%)" strokeWidth="1.6"/>
+                              <line x1="7" y1="20" x2="7" y2="27"
+                                stroke="hsl(28,90%,62%)" strokeWidth="1.8"/>
+                              <line x1="4" y1="27" x2="10" y2="27"
+                                stroke="hsl(28,90%,62%)" strokeWidth="1.8"/>
+                              <polygon
+                                points="27,12 27.7,14.2 30,14.2 28.2,15.5 28.9,17.8 27,16.5 25.1,17.8 25.8,15.5 24,14.2 26.3,14.2"
+                                fill="hsl(43,80%,62%)" stroke="none"
+                                style={{ animation:'star-pulse-cine 1.6s ease-in-out infinite',
+                                         transformOrigin:'27px 15px' }}/>
+                            </svg>
+                          ) : card.id === 'music' ? (
+                            <svg width="14" height="14" viewBox="0 0 32 32"
+                              fill="none" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M12 24V8l14-3v14"
+                                stroke="hsl(165,70%,55%)" strokeWidth="2"/>
+                              <circle cx="10" cy="24" r="3"
+                                stroke="hsl(165,70%,55%)" strokeWidth="2"/>
+                              <circle cx="24" cy="19" r="3"
+                                stroke="hsl(165,70%,55%)" strokeWidth="2"/>
+                              <rect x="16" y="1" width="2.5" rx="0.8"
+                                fill="hsl(43,80%,62%)"
+                                style={{ animation:'bar-eq-m3 0.9s ease-in-out infinite' }}/>
+                              <rect x="20" y="1" width="2.5" rx="0.8"
+                                fill="hsl(43,80%,62%)"
+                                style={{ animation:'bar-eq-m1 0.9s ease-in-out 0.2s infinite' }}/>
+                              <rect x="24" y="1" width="2.5" rx="0.8"
+                                fill="hsl(165,70%,55%)"
+                                style={{ animation:'bar-eq-m2 0.9s ease-in-out 0.1s infinite' }}/>
+                              <g style={{ animation:'note-float-m 2s ease-out 0.5s infinite',
+                                          transformOrigin:'7px 6px' }}>
+                                <path d="M7 6 L7 2 L11 1 L11 5"
+                                  stroke="hsl(43,80%,62%)" strokeWidth="1.3"/>
+                                <circle cx="6" cy="6" r="1.8"
+                                  fill="hsl(43,80%,62%)" stroke="none"/>
+                              </g>
+                            </svg>
+                          ) : (
+                            <Icon className={`w-3.5 h-3.5 ${card.iconClassName ?? ""}`} style={{ color: card.iconColor }} />
+                          )}
                           <span
                             className="text-[11px] font-orbitron px-2 py-0.5 rounded-full"
                             style={{
